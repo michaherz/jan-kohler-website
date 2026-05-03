@@ -123,9 +123,9 @@ git push
 - [x] ~~GitHub Pages live stellen~~ — erledigt 2026-05-03
 - [x] ~~Custom Domain (Ionos) verbinden~~ — erledigt 2026-05-03
 - [x] ~~Kontaktformular mit Backend verbinden~~ — erledigt 2026-05-03 (Web3Forms, Empfänger `office@jankohlercoaching.de`)
-- [ ] **Hinweis:** Sichtbare Email im Kontaktblock steht auf `jan@kohler-coaching.com` (Template-Default) — ggf. auf `office@jankohlercoaching.de` anpassen, wenn das öffentlich gezeigt werden soll
-- [ ] Restliche Placeholder-Bilder (Blog-Cards, Insights-Cards) durch echte Fotos ersetzen
-- [ ] Sprach-Audit: Seite konsequent auf Englisch vereinheitlichen (aktuell gemischt: Blog-Cards DE, Rest EN)
+- [x] ~~Sprach-Audit: Seite konsequent auf Englisch vereinheitlichen~~ — erledigt 2026-05-03 (Blog-Cards, Nav, Editor-UI, JS-Meldungen, Footer-Links, Contact-Info, Form-Subject)
+- [x] ~~Office-Angabe auf "Munich / Remote" setzen~~ — erledigt 2026-05-03 (vorher "Studio: Berlin / London / Remote")
+- [x] ~~Sichtbare Email auf `office@jankohlercoaching.de` setzen~~ — erledigt 2026-05-03 (vorher `jan@kohler-coaching.com`)
 - [ ] Deutsche Sprachversion hinzufügen (DE/EN-Umschalter)
 - [ ] Mobile-Optimierung prüfen (Hero auf kleinen Screens)
 - [ ] `index-old.html` (ehemals Option 1) ggf. löschen oder weiterentwickeln
