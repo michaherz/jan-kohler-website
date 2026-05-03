@@ -12,8 +12,8 @@ Kein Framework, kein Build-Prozess — alles in einer einzigen HTML-Datei.
 
 | Datei | Beschreibung |
 |---|---|
-| `index.html` | Option 1 — Multi-Section-Site (aus 3 Snippets zusammengeführt) |
-| `index2.html` | Option 2 — Aktive Version, wird weiterentwickelt |
+| `index.html` | **Aktive Version** (ehemals `index2.html`, umbenannt am 2026-05-03) |
+| `index-old.html` | Option 1 — Multi-Section-Site, wird nicht weiterentwickelt (ehemals `index.html`) |
 | `portrait.jpeg` | Hero-Bild — Jan Kohler Portrait (weißes Hemd, Studio) |
 | `about.jpeg` | About-Sektion — Person von hinten, braune Jacke "Easy Yoke" |
 | `insights.jpeg` | Insights-Feature-Bild — Gruppenphoto "Coach Catalyst Skill Lab" |
@@ -21,7 +21,7 @@ Kein Framework, kein Build-Prozess — alles in einer einzigen HTML-Datei.
 
 ---
 
-## Sektionen in index2.html
+## Sektionen in index.html
 
 | ID | Sektion | Inhalt |
 |---|---|---|
@@ -44,7 +44,7 @@ Kein Framework, kein Build-Prozess — alles in einer einzigen HTML-Datei.
 - Ursprüngliche KI-generierte Bilder (`lh3.googleusercontent.com`) waren verpixelt und können ablaufen.
 - Alle ersetzten Bilder liegen lokal im Ordner → beim Teilen als ZIP oder via GitHub.
 
-### Editor (eingebaut in index2.html)
+### Editor (eingebaut in index.html)
 - Floating Pencil-Button (unten rechts) → aktiviert Bearbeitungsmodus.
 - Alle Textelemente werden `contenteditable`.
 - Bilder bekommen Hover-Overlay mit Kamera-Icon → Modal mit URL-Input oder Datei-Upload (base64).
@@ -60,34 +60,48 @@ Kein Framework, kein Build-Prozess — alles in einer einzigen HTML-Datei.
 
 ## GitHub Pages
 
-- Repository: noch anzulegen (Stand: Session 1)
-- Geplante URL: `https://GITHUB-USERNAME.github.io/jan-kohler-website/`
-- Setup-Schritte: siehe Chat-Log vom 2026-04-14
+- **Live-URL:** https://michaherz.github.io/jan-kohler-website/
+- **Repo:** https://github.com/michaherz/jan-kohler-website (public)
+- **Aktiviert:** 2026-05-03
+- **Deploy:** automatisch bei Push auf `main`-Branch, Root-Verzeichnis
+- **Build-Type:** legacy (Jekyll-default, aber ohne Jekyll-Konfig → reines Static-HTML)
+- **HTTPS:** enforced
+
+### Lokaler Workflow
 
 ```bash
-# Im Website-Ordner:
-git init
+cd ~/Desktop/jan-kohler-website
+# Änderungen machen
 git add .
-git commit -m "Initial commit"
-git remote add origin https://github.com/USERNAME/jan-kohler-website.git
-git branch -M main
-git push -u origin main
-# Dann: GitHub → Settings → Pages → Branch: main / root → Save
+git commit -m "beschreibung der änderung"
+git push
+# → nach ~1 min live
 ```
+
+### Gitignore
+- `.DS_Store`
+- `Website/` (alter Archiv-Ordner)
 
 ---
 
 ## Offene Punkte / Ideen
 
-- [ ] GitHub Pages live stellen
+- [x] ~~GitHub Pages live stellen~~ — erledigt 2026-05-03
 - [ ] Restliche Placeholder-Bilder (Blog-Cards, Insights-Cards) durch echte Fotos ersetzen
 - [ ] Kontaktformular mit Backend verbinden (z.B. Formspree — kostenlos, kein Server nötig)
 - [ ] Mobile-Optimierung prüfen (Hero auf kleinen Screens)
-- [ ] Option 1 (`index.html`) ggf. verwerfen oder weiterentwickeln
+- [ ] `index-old.html` (ehemals Option 1) ggf. löschen oder weiterentwickeln
 
 ---
 
 ## Session-Log
+
+### Session 2 — 2026-05-03
+- `index.html` (Option 1) umbenannt zu `index-old.html`
+- `index2.html` umbenannt zu `index.html` → damit ist die aktive Version die GitHub-Pages-Startseite
+- Git-Repo initialisiert (`.gitignore` für `.DS_Store` und `Website/`)
+- Repo auf GitHub angelegt: https://github.com/michaherz/jan-kohler-website
+- GitHub Pages aktiviert → **Live:** https://michaherz.github.io/jan-kohler-website/
 
 ### Session 1 — 2026-04-13/14
 - `index.html` (Option 1) aus 3 separaten HTML-Snippets zusammengeführt
