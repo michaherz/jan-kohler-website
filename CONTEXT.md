@@ -157,6 +157,12 @@ git push
 
 ## Session-Log
 
+### Session 4 — 2026-05-03 (Mobile Hero Feintuning)
+- Hero-Portrait auf Mobile hatte Kopf oben abgeschnitten — kein Atemraum über dem Haaransatz
+- Fix: `.hero-img { object-position: 50% 5% }` → `50% top` (`site.html:103`)
+- Desktop-Regel (`md:` breakpoint) unverändert bei `72% top`
+- Direkt committed + gepusht — live auf jankohlercoaching.de
+
 ### Session 3 — 2026-05-03 (später)
 - Custom Domain `jankohlercoaching.de` (Ionos) mit GitHub Pages verbunden
 - Ionos: "Default Site"-Service deaktiviert → Park-Records (A/AAAA @) freigegeben
