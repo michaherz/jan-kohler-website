@@ -411,23 +411,33 @@
           <div class="absolute top-0 left-0 w-full h-[2px] bg-primary/10">
             <div class="h-full bg-primary w-1/4"></div>
           </div>
-          <form class="space-y-8">
+          <form id="contact-form" class="space-y-8" action="https://api.web3forms.com/submit" method="POST" novalidate>
+            <input type="hidden" name="access_key" value="a4c2d27f-ddee-48a8-ac73-6192445c99fe"/>
+            <input type="hidden" name="subject" value="Neue Kontaktanfrage via jankohlercoaching.de"/>
+            <input type="hidden" name="from_name" value="jankohlercoaching.de"/>
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" aria-hidden="true"/>
             <div class="space-y-2">
-              <label class="font-label text-[10px] tracking-widest uppercase text-primary ml-1">Full Name</label>
-              <input class="w-full bg-surface-container-lowest border-none rounded-full px-8 py-4 focus:ring-1 focus:ring-primary/20 text-on-surface placeholder:text-primary/30 font-body" placeholder="Your distinguished name" type="text"/>
+              <label for="cf-name" class="font-label text-[10px] tracking-widest uppercase text-primary ml-1">Full Name</label>
+              <input id="cf-name" name="name" required class="w-full bg-surface-container-lowest border-none rounded-full px-8 py-4 focus:ring-1 focus:ring-primary/20 text-on-surface placeholder:text-primary/30 font-body" placeholder="Your distinguished name" type="text"/>
             </div>
             <div class="space-y-2">
-              <label class="font-label text-[10px] tracking-widest uppercase text-primary ml-1">Email Address</label>
-              <input class="w-full bg-surface-container-lowest border-none rounded-full px-8 py-4 focus:ring-1 focus:ring-primary/20 text-on-surface placeholder:text-primary/30 font-body" placeholder="professional@email.com" type="email"/>
+              <label for="cf-email" class="font-label text-[10px] tracking-widest uppercase text-primary ml-1">Email Address</label>
+              <input id="cf-email" name="email" required class="w-full bg-surface-container-lowest border-none rounded-full px-8 py-4 focus:ring-1 focus:ring-primary/20 text-on-surface placeholder:text-primary/30 font-body" placeholder="professional@email.com" type="email"/>
             </div>
             <div class="space-y-2">
-              <label class="font-label text-[10px] tracking-widest uppercase text-primary ml-1">Your Objective</label>
-              <textarea class="w-full bg-surface-container-lowest border-none rounded-lg px-8 py-4 focus:ring-1 focus:ring-primary/20 text-on-surface placeholder:text-primary/30 font-body" placeholder="What professional trajectory are we exploring?" rows="4"></textarea>
+              <label for="cf-message" class="font-label text-[10px] tracking-widest uppercase text-primary ml-1">Your Objective</label>
+              <textarea id="cf-message" name="message" required class="w-full bg-surface-container-lowest border-none rounded-lg px-8 py-4 focus:ring-1 focus:ring-primary/20 text-on-surface placeholder:text-primary/30 font-body" placeholder="What professional trajectory are we exploring?" rows="4"></textarea>
             </div>
-            <button class="w-full bg-on-surface text-on-primary rounded-full py-5 text-sm font-label tracking-widest uppercase hover:scale-[1.01] transition-transform duration-300 shadow-lg" type="submit">
-              Send Message
+            <button id="cf-submit" class="w-full bg-on-surface text-on-primary rounded-full py-5 text-sm font-label tracking-widest uppercase hover:scale-[1.01] transition-transform duration-300 shadow-lg disabled:opacity-60 disabled:cursor-not-allowed" type="submit">
+              <span id="cf-submit-label">Send Message</span>
             </button>
+            <div id="cf-error" class="hidden text-sm font-body text-red-600"></div>
           </form>
+          <div id="cf-success" class="hidden space-y-6 py-8">
+            <span class="font-label text-[10px] tracking-widest uppercase text-primary">Message sent</span>
+            <h3 class="font-headline text-3xl md:text-4xl leading-tight">Thank you.</h3>
+            <p class="font-body text-primary">Deine Nachricht ist angekommen. Jan meldet sich in der Regel innerhalb weniger Werktage zurück.</p>
+          </div>
         </div>
 
       </div>
@@ -803,6 +813,70 @@
 
     // ── Init ──────────────────────────────────────────────────
     buildUI();
+  })();
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════
+       CONTACT FORM — Web3Forms AJAX submit
+  ══════════════════════════════════════════════════════ -->
+  <script>
+  (function() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    const errorEl = document.getElementById('cf-error');
+    const successEl = document.getElementById('cf-success');
+    const submitBtn = document.getElementById('cf-submit');
+    const submitLabel = document.getElementById('cf-submit-label');
+    const originalLabel = submitLabel.textContent;
+
+    function showError(msg) {
+      errorEl.textContent = msg;
+      errorEl.classList.remove('hidden');
+    }
+
+    function clearError() {
+      errorEl.textContent = '';
+      errorEl.classList.add('hidden');
+    }
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      clearError();
+
+      // HTML5-Validierung manuell auslösen (wir haben novalidate gesetzt, damit kein Browser-Popup erscheint)
+      if (!form.checkValidity()) {
+        const firstInvalid = form.querySelector(':invalid');
+        if (firstInvalid) firstInvalid.focus();
+        showError('Bitte alle Felder korrekt ausfüllen.');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitLabel.textContent = 'Wird gesendet…';
+
+      try {
+        const formData = new FormData(form);
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+        const data = await res.json().catch(() => ({}));
+
+        if (res.ok && data.success) {
+          form.classList.add('hidden');
+          successEl.classList.remove('hidden');
+          successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          throw new Error(data.message || 'Unbekannter Fehler. Bitte später erneut versuchen.');
+        }
+      } catch (err) {
+        showError('Senden fehlgeschlagen: ' + err.message);
+        submitBtn.disabled = false;
+        submitLabel.textContent = originalLabel;
+      }
+    });
   })();
   </script>
 

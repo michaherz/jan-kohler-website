@@ -44,6 +44,17 @@ Kein Framework, kein Build-Prozess — alles in einer einzigen HTML-Datei.
 - Ursprüngliche KI-generierte Bilder (`lh3.googleusercontent.com`) waren verpixelt und können ablaufen.
 - Alle ersetzten Bilder liegen lokal im Ordner → beim Teilen als ZIP oder via GitHub.
 
+### Kontaktformular
+- Backend: **Web3Forms** (kostenlos, 250 Submissions/Monat)
+- Endpoint: `https://api.web3forms.com/submit`
+- Access Key im HTML hardcoded (public — Web3Forms prüft serverseitig gegen die Domain)
+- Empfänger: `office@jankohlercoaching.de`
+- Einreichung per AJAX (Fetch), Seite lädt nicht neu
+- Bei Erfolg: Form wird durch "Thank you"-Block ersetzt (`#cf-success`)
+- Bei Fehler: Rote Meldung unter dem Button (`#cf-error`)
+- Spamschutz: Honeypot-Feld `botcheck` (für Menschen unsichtbar)
+- HTML5-Validierung (required, type=email) manuell ausgelöst, `novalidate` am Form verhindert Browser-Popups
+
 ### Editor (eingebaut in index.html)
 - Floating Pencil-Button (unten rechts) → aktiviert Bearbeitungsmodus.
 - Alle Textelemente werden `contenteditable`.
@@ -111,8 +122,11 @@ git push
 
 - [x] ~~GitHub Pages live stellen~~ — erledigt 2026-05-03
 - [x] ~~Custom Domain (Ionos) verbinden~~ — erledigt 2026-05-03
+- [x] ~~Kontaktformular mit Backend verbinden~~ — erledigt 2026-05-03 (Web3Forms, Empfänger `office@jankohlercoaching.de`)
+- [ ] **Hinweis:** Sichtbare Email im Kontaktblock steht auf `jan@kohler-coaching.com` (Template-Default) — ggf. auf `office@jankohlercoaching.de` anpassen, wenn das öffentlich gezeigt werden soll
 - [ ] Restliche Placeholder-Bilder (Blog-Cards, Insights-Cards) durch echte Fotos ersetzen
-- [ ] Kontaktformular mit Backend verbinden (z.B. Formspree/Web3Forms — Empfänger: `office@jankohlercoaching.de`)
+- [ ] Sprach-Audit: Seite konsequent auf Englisch vereinheitlichen (aktuell gemischt: Blog-Cards DE, Rest EN)
+- [ ] Deutsche Sprachversion hinzufügen (DE/EN-Umschalter)
 - [ ] Mobile-Optimierung prüfen (Hero auf kleinen Screens)
 - [ ] `index-old.html` (ehemals Option 1) ggf. löschen oder weiterentwickeln
 
