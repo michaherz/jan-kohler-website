@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Jan Kohler — Executive Coaching</title>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-variant": "#dbe3ec",
+            "on-primary-container": "#525252",
+            "on-secondary-fixed": "#3c4040",
+            "primary-fixed-dim": "#d4d4d4",
+            "surface-bright": "#f8f9fc",
+            "on-primary": "#f8f8f8",
+            "error-container": "#fe8983",
+            "tertiary-fixed-dim": "#c2def0",
+            "secondary-dim": "#505454",
+            "secondary-fixed": "#e1e3e3",
+            "tertiary": "#486272",
+            "secondary-container": "#e1e3e3",
+            "surface-tint": "#5e5e5e",
+            "tertiary-fixed": "#d0ecff",
+            "inverse-surface": "#0c0f11",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed-dim": "#d2d5d5",
+            "inverse-on-surface": "#9b9da0",
+            "on-tertiary-fixed": "#2c4655",
+            "surface-dim": "#d1dbe5",
+            "primary-dim": "#525252",
+            "on-secondary-container": "#4f5253",
+            "primary-fixed": "#e2e2e2",
+            "surface-container": "#eaeef4",
+            "primary-container": "#e2e2e2",
+            "surface-container-highest": "#dbe3ec",
+            "on-secondary-fixed-variant": "#595c5d",
+            "surface-container-low": "#f1f4f8",
+            "on-error": "#fff7f6",
+            "on-primary-fixed-variant": "#5b5b5b",
+            "outline-variant": "#aab3bb",
+            "surface": "#f8f9fc",
+            "on-background": "#2b333a",
+            "secondary": "#5c6060",
+            "primary": "#5e5e5e",
+            "on-surface-variant": "#586067",
+            "on-tertiary-container": "#3e5868",
+            "on-error-container": "#752121",
+            "on-tertiary": "#f4faff",
+            "on-tertiary-fixed-variant": "#486272",
+            "tertiary-dim": "#3c5666",
+            "surface-container-high": "#e2e9f0",
+            "tertiary-container": "#d0ecff",
+            "outline": "#737c83",
+            "on-primary-fixed": "#3f3f3f",
+            "on-surface": "#2b333a",
+            "on-secondary": "#f7f9fa",
+            "error-dim": "#4e0309",
+            "inverse-primary": "#ffffff",
+            "error": "#9f403d",
+            "background": "#f8f9fc"
+          },
+          borderRadius: {
+            DEFAULT: "1rem",
+            lg: "2rem",
+            xl: "3rem",
+            full: "9999px"
+          },
+          fontFamily: {
+            headline: ["Newsreader"],
+            body: ["Manrope"],
+            label: ["Manrope"]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      font-family: 'Manrope', sans-serif;
+      background-color: #f8f9fc;
+      color: #2b333a;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Newsreader', serif;
+    }
+    .nav-link {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 1.125rem;
+      letter-spacing: -0.025em;
+      color: #737373;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: #1a1a1a; }
+    .nav-link.active {
+      color: #1a1a1a;
+      font-weight: 500;
+      border-bottom: 1px solid #1a1a1a;
+      padding-bottom: 2px;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+
+  <!-- ── Navigation ─────────────────────────────────────────── -->
+  <nav class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-[0_20px_40px_rgba(43,51,58,0.05)]">
+    <div class="flex justify-between items-center px-12 py-6 max-w-screen-2xl mx-auto">
+      <a href="#home" class="font-serif text-2xl font-medium tracking-tighter text-neutral-800 no-underline">Jan Kohler</a>
+      <div class="hidden md:flex items-center gap-10">
+        <a href="#ueber-mich" class="nav-link" data-section="ueber-mich">Über mich</a>
+        <a href="#coaching"   class="nav-link" data-section="coaching">Coaching</a>
+        <a href="#blog"       class="nav-link" data-section="blog">Blog</a>
+        <a href="#kontakt"    class="nav-link" data-section="kontakt">Kontakt</a>
+      </div>
+      <a href="#kontakt" class="bg-on-surface text-on-primary px-10 py-4 rounded-full font-label text-sm tracking-widest uppercase hover:scale-105 transition-transform duration-200 ease-out no-underline">
+        Termin buchen
+      </a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 1 — HOME / HERO
+    ══════════════════════════════════════════════════════ -->
+    <section id="home" class="relative min-h-screen flex items-center pt-32 px-12 max-w-screen-2xl mx-auto overflow-hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full">
+
+        <!-- Left Content -->
+        <div class="lg:col-span-5 z-10">
+          <div class="inline-block px-4 py-1 mb-8 rounded-full bg-surface-container-low border border-outline-variant/15">
+            <span class="font-label text-[10px] uppercase tracking-[0.2em] text-primary">Executive Excellence</span>
+          </div>
+          <h1 class="text-[clamp(3rem,6vw,4.5rem)] leading-[1.05] font-medium tracking-tight mb-8">
+            Elevate Your <br/>
+            <span class="italic text-primary">Professional</span> <br/>
+            Trajectory
+          </h1>
+          <p class="text-lg md:text-xl text-on-surface-variant max-w-md mb-12 leading-relaxed">
+            Refined coaching for leaders who value nuanced growth. We specialize in the quiet transition from high-performance to mastery.
+          </p>
+          <div class="flex items-center gap-8">
+            <a href="#kontakt" class="bg-on-surface text-on-primary px-10 py-4 rounded-full font-label text-xs tracking-widest uppercase hover:scale-105 transition-transform duration-300 no-underline">
+              Begin Today
+            </a>
+            <a href="#coaching" class="group flex items-center gap-3 font-label text-xs tracking-widest uppercase border-b border-transparent hover:border-on-surface transition-all pb-1 no-underline text-on-surface">
+              The Methodology
+              <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Visual -->
+        <div class="lg:col-span-7 relative h-[600px] lg:h-[750px]">
+          <div class="absolute inset-0 bg-surface-container-high rounded-xl lg:rounded-lg overflow-hidden shadow-[0_40px_80px_rgba(43,51,58,0.08)]">
+            <img
+              class="w-full h-full object-cover object-center transform scale-105 hover:scale-110 transition-transform duration-[2000ms]"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg5c9hKsvqLSeCjQlT0fM6VKXKxKcoz7j4cQJa_zlxPEj8sWgjCfgDcH1RUy8HkMI50e0KcKCU2V2vE3XJomoIX2l98NdzwSeUmX1CJQ77T8swsYApt5VY7hrJdGmiCX-C7Eyy-LNEjTxG31aI-FCt_vWsKXY22dkMZ00aRT0w5OjDzbmy_xpkTqW8g6wSPPknpRUXpXdXt-7bVYO5Qartx2R62W2jZcuHCc66WMrm_CAVaI2NHhBf52Z6P3rN_PkShGpFXy2ujLgh"
+              alt="Overhead view of athletics track"
+            />
+          </div>
+          <!-- Floating Card -->
+          <div class="absolute bottom-12 -left-12 hidden xl:block p-8 bg-surface/70 backdrop-blur-2xl rounded-lg shadow-2xl max-w-xs border border-white/20">
+            <div class="flex flex-col gap-4">
+              <span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings:'FILL' 1;">precision_manufacturing</span>
+              <h3 class="text-xl font-medium">Precision Focus</h3>
+              <p class="text-sm text-on-surface-variant font-body leading-relaxed">
+                Our metrics-driven approach ensures every milestone is calculated and impactful.
+              </p>
+              <div class="w-full bg-surface-container-highest h-[2px] mt-2">
+                <div class="bg-primary h-full w-2/3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Track Indicator -->
+    <div class="w-full px-12 py-24 max-w-screen-2xl mx-auto">
+      <div class="flex justify-between items-end mb-4">
+        <span class="font-label text-[10px] uppercase tracking-widest text-primary">Trajectory Progress</span>
+        <span class="font-serif italic text-2xl">01 // Foundation</span>
+      </div>
+      <div class="w-full h-[2px] bg-surface-container-high relative">
+        <div class="absolute top-0 left-0 h-full w-1/4 bg-on-surface"></div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 2 — COACHING / PILLAR FRAMEWORK
+    ══════════════════════════════════════════════════════ -->
+    <section id="coaching" class="px-12 py-24 max-w-screen-2xl mx-auto bg-surface-container-low rounded-xl scroll-mt-28">
+      <div class="mb-20 text-center max-w-2xl mx-auto">
+        <h2 class="text-4xl md:text-5xl mb-6">The Pillar Framework</h2>
+        <p class="font-body text-on-surface-variant">Three distinct disciplines converged into one singular path for professional evolution.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Card 1 -->
+        <div class="bg-surface p-12 rounded-lg flex flex-col justify-between min-h-[400px] group hover:bg-white transition-colors duration-500">
+          <div>
+            <span class="font-serif text-5xl text-surface-container-highest mb-8 block group-hover:text-primary-container transition-colors">01</span>
+            <h3 class="text-2xl mb-4">Strategic Clarity</h3>
+            <p class="text-on-surface-variant leading-relaxed">Cutting through noise to find the fundamental truth of your professional identity.</p>
+          </div>
+          <div class="mt-8 overflow-hidden rounded-md h-32">
+            <img class="w-full h-full object-cover grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9NU8GMcBBYSEt3nuwt9NmcoELNF8MiB6ki8AWydJvcLUxTThyePCkc7raVtzdUXdvjZv-uMdmfFRxJlEw29Q9wUegM6Yh_u6CCqHNCNuFPofBGhliuiOaP_Yntlo8CdcprxXWvRwb03k21Gfh3yK_oMk6iA1d8rh-v1DQVZaYM9jCM00D894EkCExWCqsDeZYmH6Zdx0blWMR_jVOq_4hnd78Mn4xA_TB1MZEEsktCOOimur8BkZLEuBXVRETNJn2J_q7Q8bax2A7"
+              alt="Notebook and fountain pen" />
+          </div>
+        </div>
+
+        <!-- Card 2 (Elevated) -->
+        <div class="bg-white p-12 rounded-lg flex flex-col justify-between min-h-[400px] shadow-[0_20px_40px_rgba(43,51,58,0.05)] border border-outline-variant/10">
+          <div>
+            <span class="font-serif text-5xl text-primary/20 mb-8 block">02</span>
+            <h3 class="text-2xl mb-4">Embodied Leadership</h3>
+            <p class="text-on-surface-variant leading-relaxed">Leadership that transcends tactics and becomes a natural extension of your presence.</p>
+          </div>
+          <div class="mt-8 overflow-hidden rounded-md h-32">
+            <img class="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 transition-all duration-700"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL9Yf7p1cMW2278Gsw8i9vC5m65mpABpfQB8VPx1B5X91Bc6jOuwoogYn4hbxGrA4cGYE7h82UVW-9x31s9yHYr6QuoK0qT0VytdBRT6ptZ5TBvdn390vzGeEH-3zB08q-YzdU3bRta9TiS1q5LzG7tXLWEGp8upIfvI9DB7LlrGSgEf_3CmH6jQt3PaGEI5_d5luUPySTgFT6mW6PPRBFvzBT4BIkS0Oit6DEADkwaULGwKubypvhl1eBh0HOFB2MQ49bkIV8hnx5"
+              alt="Abstract architectural lines" />
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-surface p-12 rounded-lg flex flex-col justify-between min-h-[400px] group hover:bg-white transition-colors duration-500">
+          <div>
+            <span class="font-serif text-5xl text-surface-container-highest mb-8 block group-hover:text-primary-container transition-colors">03</span>
+            <h3 class="text-2xl mb-4">Peak Performance</h3>
+            <p class="text-on-surface-variant leading-relaxed">Applying athletic discipline to cognitive load management and decision-making.</p>
+          </div>
+          <div class="mt-8 overflow-hidden rounded-md h-32">
+            <img class="w-full h-full object-cover grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3Dp-K5JPJ9ROrlHgmqp2VLXLIPv39800UgX0hAFG5G1GFMCBzdy3NwEcbI_toCUQSfFAs1qJeURwxWClpInAJGoToi24iMXDUEiaLck5v80f0sHwo13odDJ8W1l6zfhYADZCJiGWZYQFYBlQTykjx99NHE8g6_UKAWnvgY6MwHpd4zLOocrx9d2-1KWoQ5pu8i7geqac81-binRXQrE7-Sy_WO14LYo06Bh2XJznj78AQx27fI_2j8WkejtiJhVGZIhBTg3Uq6E2L"
+              alt="Silhouette at dawn" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 3 — ÜBER MICH
+    ══════════════════════════════════════════════════════ -->
+    <section id="ueber-mich" class="max-w-screen-2xl mx-auto px-12 py-32 grid grid-cols-1 md:grid-cols-12 gap-16 items-center scroll-mt-28">
+
+      <!-- Left: Large Vertical Image -->
+      <div class="md:col-span-5 relative h-[870px] overflow-hidden rounded-lg">
+        <img class="w-full h-full object-cover grayscale opacity-90"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1UwASQaTSDB1EpUStQjOedOweyS2jUnyLGIHCWP7zhuiODv0v_7WBl-9iEegbEGGiIbLumln7nwY0RPy4F7DrciDUf_2Obqh-FQy7jsbRYte-_SYIUxulCSzQ07r4-ec4N9JjR-AM0wTi0iYXTKX9V0d7m9FpNKtlkkh4ZB2g5gnEgIFLDSz_8gnB3TU7sY9GHjntJy2BxH8qENKDWIyh-q0fQFZCyNLvyL23oq3l7C85FQIsv_z3ixgu78Kv7aT81kvLcR20JQyW"
+          alt="Empty athletics stadium" />
+        <div class="absolute bottom-12 left-0 w-full px-8">
+          <div class="h-[2px] w-full bg-primary/20 overflow-hidden">
+            <div class="h-full bg-primary w-1/3"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Content -->
+      <div class="md:col-span-7 flex flex-col justify-center max-w-xl mx-auto">
+        <div class="mb-6">
+          <span class="font-label text-xs font-bold tracking-[0.2em] text-primary uppercase">Über mich</span>
+        </div>
+        <h2 class="font-headline text-[3.5rem] leading-[1.1] text-on-surface mb-8">
+          Cultivating Distinguished Leaders
+        </h2>
+        <p class="font-body text-xl leading-relaxed text-on-surface-variant mb-12">
+          For over a decade, our coaching practice has guided executives and entrepreneurs toward understated yet measurable excellence. We believe in the discipline of the track and the clarity of the stadium.
+        </p>
+        <div class="flex items-center gap-8">
+          <a href="#kontakt" class="bg-on-surface text-on-primary px-10 py-4 rounded-full font-body text-sm font-semibold uppercase tracking-widest hover:scale-105 transition-all duration-300 no-underline">
+            Learn More
+          </a>
+          <a href="#coaching" class="font-label text-xs font-bold tracking-widest text-primary hover:text-on-surface transition-colors flex items-center gap-2 no-underline">
+            OUR PHILOSOPHY
+            <span class="material-symbols-outlined text-[1rem]">arrow_forward</span>
+          </a>
+        </div>
+        <!-- Stats -->
+        <div class="mt-20 grid grid-cols-2 gap-8 border-t border-outline-variant/10 pt-12">
+          <div>
+            <h4 class="font-headline text-2xl text-on-surface mb-2 italic">10+ Years</h4>
+            <p class="font-body text-sm text-on-surface-variant">Of executive performance research and active mentoring.</p>
+          </div>
+          <div>
+            <h4 class="font-headline text-2xl text-on-surface mb-2 italic">Global Reach</h4>
+            <p class="font-body text-sm text-on-surface-variant">Partnering with leaders across major financial hubs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="py-32 bg-surface-container-low">
+      <div class="max-w-screen-xl mx-auto px-12 text-center">
+        <div class="max-w-3xl mx-auto relative">
+          <span class="material-symbols-outlined text-surface-container-highest text-8xl absolute -top-12 -left-8 pointer-events-none">format_quote</span>
+          <h2 class="font-headline text-3xl italic leading-snug text-on-surface relative z-10">
+            Performance is not a loud proclamation, but a quiet, consistent commitment to the fundamentals.
+          </h2>
+          <div class="mt-8 flex flex-col items-center">
+            <div class="h-12 w-[1px] bg-primary mb-6"></div>
+            <span class="font-label text-xs tracking-widest uppercase text-on-surface">Jan Kohler, Founder</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 4 — BLOG
+    ══════════════════════════════════════════════════════ -->
+    <section id="blog" class="max-w-screen-2xl mx-auto px-12 pt-32 pb-16 scroll-mt-28">
+
+      <!-- Blog Hero Title -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+        <div class="max-w-2xl">
+          <span class="font-label text-xs tracking-[0.2em] text-primary mb-4 block uppercase font-bold">Perspektiven &amp; Insights</span>
+          <h2 class="font-headline text-6xl md:text-8xl font-medium leading-[1.1] tracking-tight text-on-surface">
+            Follow Our Ongoing Discourse
+          </h2>
+        </div>
+        <div class="pb-4">
+          <div class="h-[2px] w-32 bg-primary mb-2"></div>
+          <p class="font-body text-sm text-on-surface-variant max-w-[240px]">Exploring the intersection of athletic discipline and professional excellence.</p>
+        </div>
+      </div>
+
+      <!-- Blog Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <!-- Card 1 -->
+        <article class="group cursor-pointer">
+          <div class="relative aspect-[3/4] overflow-hidden rounded-lg mb-6 bg-surface-container-low transition-transform duration-500 group-hover:scale-[0.98]">
+            <img class="absolute inset-0 w-full h-full object-cover grayscale-[0.2] transition-transform duration-700 group-hover:scale-110"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeHr8WFpKPwcZDAg_O49gov8AtaRYHWG0EN6X0I2Sxk_8y9ULDbt3P7yZEKokyH7um3vMIODo6Gd96wuUQ2v-a95j-gKRZ0EA4RbkJ_sFEPBqndDzdivLRGCOMEoSLsT6qdcWOmfumMjLoRu8lBWjtLTWF5RA3_jwZQBF7vWrBRrsJTVlQQZfQBBI8-ggCSKcw6QVRD51pnYo8_oaI8gHsmfY_1T2YZQUh8qtG6rsYVLjOCWt3CzklTBAhTfcyNi7nX0bZhA5Gm7JO"
+              alt="Football pitch" />
+            <div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </div>
+          <span class="font-label text-[10px] tracking-widest text-primary mb-2 block uppercase font-bold">Strategie</span>
+          <h3 class="font-headline text-2xl mb-3 leading-tight text-on-surface">Das Spielfeld der Führung: Lehren aus dem Profisport</h3>
+          <p class="font-body text-on-surface-variant text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">Wie Raumaufteilung und Taktik Ihre Unternehmensstruktur optimieren können.</p>
+        </article>
+
+        <!-- Card 2 (offset) -->
+        <article class="group cursor-pointer pt-12 md:pt-24">
+          <div class="relative aspect-[3/4] overflow-hidden rounded-lg mb-6 bg-surface-container-low transition-transform duration-500 group-hover:scale-[0.98]">
+            <img class="absolute inset-0 w-full h-full object-cover grayscale-[0.2] transition-transform duration-700 group-hover:scale-110"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj3jV4x3ZerDLUXW4d-Cf3y9xSUM9p48PPzb7hvH45n1r4E7pf2Fh6R6SNpQzHFdja18yOxZ5vUOCJLR8CksJ2KR6pW25spDE2w21s3Em5s1g8Xdn8uihxBWBq-VNyirzzzJT7VmMVHIYYIq9kBTpxqOWpCdEL2iejJlopR5WMUs6Xe88Z7pZrkfaf5v1VG4CfrOrwvb8-R_6uURGbG97Zq8vSMlSsMguPNp1RsMWZK2QEtMxLT36Sd5f3kX-ccgTs08-LN3-xnhCr"
+              alt="Coach whistle" />
+            <div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </div>
+          <span class="font-label text-[10px] tracking-widest text-primary mb-2 block uppercase font-bold">Kommunikation</span>
+          <h3 class="font-headline text-2xl mb-3 leading-tight text-on-surface">Die Kunst des klaren Signals</h3>
+          <p class="font-body text-on-surface-variant text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">Entscheidungsfindung unter Druck: Wenn ein Pfiff alles verändert.</p>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="group cursor-pointer">
+          <div class="relative aspect-[3/4] overflow-hidden rounded-lg mb-6 bg-surface-container-low transition-transform duration-500 group-hover:scale-[0.98]">
+            <img class="absolute inset-0 w-full h-full object-cover grayscale-[0.2] transition-transform duration-700 group-hover:scale-110"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoCkeJjZ4xqGWFaqR7rJMhVWU6g-V7gerNlEiIX-iOOC_UpK7QQuBPT4aasts1XgIXCXIdGn2xlR7_j6yqgzg5Xrz8QzJaidRM4YLROlp-E9r9uxDkXvKqeZRB_UvTvXve3xr_BVJucRSJgHg2wjNRfe3fH4VxyC7qruh0jvWNcvp1xGOjUWwDn1Ny3CqeeIW3d3A4qKyS2P2LbGCyNQOsni1UEqOlrhwebkYCGN6c1M5J7MaRNFEIV1FDKiZxndMDvu-7hrRYtrC0"
+              alt="Vintage stopwatch" />
+            <div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </div>
+          <span class="font-label text-[10px] tracking-widest text-primary mb-2 block uppercase font-bold">Leistung</span>
+          <h3 class="font-headline text-2xl mb-3 leading-tight text-on-surface">Sekundenbruchteile: Timing als Wettbewerbsvorteil</h3>
+          <p class="font-body text-on-surface-variant text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">Warum Pausen genauso wichtig sind wie der Sprint zum Ziel.</p>
+        </article>
+
+        <!-- Card 4 (offset) -->
+        <article class="group cursor-pointer pt-12 md:pt-16">
+          <div class="relative aspect-[3/4] overflow-hidden rounded-lg mb-6 bg-surface-container-low transition-transform duration-500 group-hover:scale-[0.98]">
+            <img class="absolute inset-0 w-full h-full object-cover grayscale-[0.2] transition-transform duration-700 group-hover:scale-110"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8DfbPiKHp6-AHttSaMmeEjwJPptfK5XPyBHI00Ve8uS1pdTmKSRJ1qpdKQVQj5AJjoXdRlfVCkmQGr5b-i8WFBv0NtpBaRK1TKUJd-G0WG_reXBz-to5EPsw0VQKdMvX51_u0gZALtmG4t3-bHtJwsISufB-v3dgV9iXYhslTW4TJjqyfEgXz5aIgbOwxLd1MU-qnONtGOmNyM8KtG1AhF5KkFzLx8_nihr-25sDL7ENsEekIrjk_ERst15liAguTXsijBopYX-zd"
+              alt="Running track curve" />
+            <div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </div>
+          <span class="font-label text-[10px] tracking-widest text-primary mb-2 block uppercase font-bold">Ausdauer</span>
+          <h3 class="font-headline text-2xl mb-3 leading-tight text-on-surface">Der Marathon der Transformation</h3>
+          <p class="font-body text-on-surface-variant text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">Beständigkeit schlägt Intensität: Wie man langfristig an der Spitze bleibt.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SECTION 5 — KONTAKT / CTA
+    ══════════════════════════════════════════════════════ -->
+    <section id="kontakt" class="max-w-screen-2xl mx-auto px-12 mt-24 mb-24 text-center scroll-mt-28">
+      <div class="relative py-24 bg-surface-container-low rounded-lg overflow-hidden">
+        <div class="relative z-10">
+          <span class="font-label text-[10px] uppercase tracking-[0.2em] text-primary block mb-6">Kontakt</span>
+          <h2 class="font-headline text-4xl md:text-5xl mb-8">Bereit für den nächsten Schritt?</h2>
+          <p class="font-body text-on-surface-variant max-w-md mx-auto mb-12 leading-relaxed">
+            Nehmen Sie Kontakt auf und starten Sie Ihre Transformation zu authentischer Spitzenleistung.
+          </p>
+          <a href="mailto:hello@jan-kohler.de" class="inline-block bg-on-surface text-on-primary px-12 py-5 rounded-full font-label text-sm tracking-[0.2em] uppercase hover:scale-105 transition-all duration-300 shadow-xl shadow-on-surface/10 no-underline">
+            Connect
+          </a>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full h-[2px] bg-primary/20">
+          <div class="h-full bg-primary w-1/4"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer class="w-full py-20 bg-neutral-100">
+    <div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-screen-2xl mx-auto gap-8">
+      <div class="flex flex-col gap-4">
+        <span class="font-serif text-xl text-neutral-800">Jan Kohler</span>
+        <p class="font-sans text-sm tracking-wide uppercase text-neutral-500">© 2024 Jan Kohler. Understated Excellence.</p>
+      </div>
+      <div class="flex gap-12">
+        <a href="#" class="font-sans text-sm tracking-wide uppercase text-neutral-500 hover:text-neutral-800 transition-colors">Impressum</a>
+        <a href="#" class="font-sans text-sm tracking-wide uppercase text-neutral-500 hover:text-neutral-800 transition-colors">Datenschutz</a>
+        <a href="#" class="font-sans text-sm tracking-wide uppercase text-neutral-500 hover:text-neutral-800 transition-colors">Newsletter</a>
+      </div>
+      <div class="flex gap-6">
+        <a href="#" class="opacity-80 hover:opacity-100 transition-opacity">
+          <span class="material-symbols-outlined text-neutral-500">share</span>
+        </a>
+        <a href="#" class="opacity-80 hover:opacity-100 transition-opacity">
+          <span class="material-symbols-outlined text-neutral-500">mail</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Scroll Spy ─────────────────────────────────────────── -->
+  <script>
+    const sections = ['ueber-mich', 'coaching', 'blog', 'kontakt'];
+    const navLinks = document.querySelectorAll('.nav-link[data-section]');
+
+    function updateActiveNav() {
+      let current = '';
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 120) {
+          current = id;
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.dataset.section === current);
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav();
+  </script>
+
+</body>
+</html>
