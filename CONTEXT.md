@@ -60,12 +60,35 @@ Kein Framework, kein Build-Prozess — alles in einer einzigen HTML-Datei.
 
 ## GitHub Pages
 
-- **Live-URL:** https://michaherz.github.io/jan-kohler-website/
+- **Live-URL (primär):** https://jankohlercoaching.de
+- **Alternative:** `www.jankohlercoaching.de` → leitet automatisch auf apex weiter
+- **Fallback:** https://michaherz.github.io/jan-kohler-website/
 - **Repo:** https://github.com/michaherz/jan-kohler-website (public)
-- **Aktiviert:** 2026-05-03
+- **Pages aktiviert:** 2026-05-03
+- **Custom Domain verbunden:** 2026-05-03
 - **Deploy:** automatisch bei Push auf `main`-Branch, Root-Verzeichnis
 - **Build-Type:** legacy (Jekyll-default, aber ohne Jekyll-Konfig → reines Static-HTML)
-- **HTTPS:** enforced
+- **HTTPS:** enforced (Let's Encrypt, auto-renew durch GitHub)
+
+### Ionos DNS-Konfiguration
+
+Die Domain `jankohlercoaching.de` ist bei Ionos registriert, Nameserver bleiben Ionos. Nur die DNS-Records zeigen auf GitHub:
+
+| Typ | Hostname | Wert | Zweck |
+|---|---|---|---|
+| A | `@` | `185.199.108.153` | GitHub Pages |
+| A | `@` | `185.199.109.153` | GitHub Pages |
+| A | `@` | `185.199.110.153` | GitHub Pages |
+| A | `@` | `185.199.111.153` | GitHub Pages |
+| CNAME | `www` | `michaherz.github.io` | GitHub Pages www-Subdomain |
+
+**Mail-Records (SPF, DKIM, DMARC, MX zu mx00/mx01.ionos.de) bleiben unangetastet** — Emails über `office@jankohlercoaching.de` laufen weiter über Ionos Mail.
+
+**Vorher entfernt:** Default-Site-Records (A @ 217.160.0.36 und AAAA @ 2001:...), Ionos "Default Site" Service wurde über "Verwendungsart anpassen" deaktiviert.
+
+### Repo-Struktur
+
+- `CNAME` (im Repo-Root) → enthält nur `jankohlercoaching.de`. Diese Datei ist die Voraussetzung für GitHub Pages mit Custom Domain. **Nicht manuell ändern** — GitHub aktualisiert sie automatisch, wenn die Domain in den Pages-Settings geändert wird.
 
 ### Lokaler Workflow
 
@@ -75,7 +98,7 @@ cd ~/Desktop/jan-kohler-website
 git add .
 git commit -m "beschreibung der änderung"
 git push
-# → nach ~1 min live
+# → nach ~1 min live auf jankohlercoaching.de
 ```
 
 ### Gitignore
@@ -87,14 +110,24 @@ git push
 ## Offene Punkte / Ideen
 
 - [x] ~~GitHub Pages live stellen~~ — erledigt 2026-05-03
+- [x] ~~Custom Domain (Ionos) verbinden~~ — erledigt 2026-05-03
 - [ ] Restliche Placeholder-Bilder (Blog-Cards, Insights-Cards) durch echte Fotos ersetzen
-- [ ] Kontaktformular mit Backend verbinden (z.B. Formspree — kostenlos, kein Server nötig)
+- [ ] Kontaktformular mit Backend verbinden (z.B. Formspree/Web3Forms — Empfänger: `office@jankohlercoaching.de`)
 - [ ] Mobile-Optimierung prüfen (Hero auf kleinen Screens)
 - [ ] `index-old.html` (ehemals Option 1) ggf. löschen oder weiterentwickeln
 
 ---
 
 ## Session-Log
+
+### Session 3 — 2026-05-03 (später)
+- Custom Domain `jankohlercoaching.de` (Ionos) mit GitHub Pages verbunden
+- Ionos: "Default Site"-Service deaktiviert → Park-Records (A/AAAA @) freigegeben
+- Ionos DNS: 4× A @ (GitHub-IPs 108/109/110/111) + 1× CNAME www → michaherz.github.io
+- Mail-Records (SPF/DKIM/DMARC/MX/Autodiscover) blieben komplett unangetastet
+- `CNAME`-Datei im Repo angelegt mit Inhalt `jankohlercoaching.de`
+- Pages-Settings via `gh api PUT` auf Custom Domain gesetzt
+- HTTPS (Let's Encrypt) wird automatisch ausgestellt → `https_enforced` aktiviert
 
 ### Session 2 — 2026-05-03
 - `index.html` (Option 1) umbenannt zu `index-old.html`
