@@ -14,10 +14,21 @@ Kein Framework, kein Build-Prozess — alles in einer einzigen HTML-Datei.
 |---|---|
 | `index.html` | **Aktive Version** (ehemals `index2.html`, umbenannt am 2026-05-03) |
 | `index-old.html` | Option 1 — Multi-Section-Site, wird nicht weiterentwickelt (ehemals `index.html`) |
-| `portrait.jpeg` | Hero-Bild — Jan Kohler Portrait (weißes Hemd, Studio) |
-| `about.jpeg` | About-Sektion — Person von hinten, braune Jacke "Easy Yoke" |
-| `insights.jpeg` | Insights-Feature-Bild — Gruppenphoto "Coach Catalyst Skill Lab" |
-| `CONTEXT.md` | Diese Datei — Session-Log & technische Dokumentation |
+| `blog-strategy.html` | Blog-Artikel "The Playing Field of Leadership" (Platzhalter-Inhalt) |
+| `blog-communication.html` | Blog-Artikel "The Art of Clear Signals" (Platzhalter) |
+| `blog-performance.html` | Blog-Artikel "Split Seconds" (Platzhalter) |
+| `blog-endurance.html` | Blog-Artikel "The Marathon of Transformation" (Platzhalter) |
+| `insight-decision-making.html` | Insights-Artikel "Resilient Decision Making" (Platzhalter) |
+| `insight-silence.html` | Insights-Artikel "The Silence Between Actions" (Platzhalter) |
+| `insight-executive-presence.html` | Insights-Artikel "Cultivating Executive Presence" (Platzhalter) |
+| `insight-habit-excellence.html` | Insights-Artikel "The Habit of Excellence" (Platzhalter) |
+| `imprint.html` | Impressum (Gerüst — Platzhalter gelb markiert, zum Ausfüllen) |
+| `privacy.html` | Datenschutz (Gerüst — Platzhalter gelb markiert, DSGVO-konform für Web3Forms, Google Fonts, Tailwind CDN) |
+| `CNAME` | GitHub-Pages-Konfig: `jankohlercoaching.de` |
+| `portrait.jpeg` | Hero-Bild |
+| `about.jpeg` | About-Sektion, auch Autor-Avatar auf Artikelseiten |
+| `insights.jpeg` | Insights-Feature-Bild (und Hero des Decision-Making-Artikels) |
+| `CONTEXT.md` | Diese Datei |
 
 ---
 
@@ -126,7 +137,16 @@ git push
 - [x] ~~Sprach-Audit: Seite konsequent auf Englisch vereinheitlichen~~ — erledigt 2026-05-03 (Blog-Cards, Nav, Editor-UI, JS-Meldungen, Footer-Links, Contact-Info, Form-Subject)
 - [x] ~~Office-Angabe auf "Munich / Remote" setzen~~ — erledigt 2026-05-03 (vorher "Studio: Berlin / London / Remote")
 - [x] ~~Sichtbare Email auf `office@jankohlercoaching.de` setzen~~ — erledigt 2026-05-03 (vorher `jan@kohler-coaching.com`)
-- [ ] Deutsche Sprachversion hinzufügen (DE/EN-Umschalter)
+- [x] ~~Blog-Artikel-Seiten als Platzhalter~~ — erledigt 2026-05-03 (4 Seiten: Strategy, Communication, Performance, Endurance — realistische Platzhalter-Prose, Cards verlinkt)
+- [x] ~~Insights-Artikel-Seiten als Platzhalter~~ — erledigt 2026-05-03 (4 Seiten: Decision Making, Silence, Executive Presence, Habit of Excellence — Cards verlinkt)
+- [x] ~~Impressum-Gerüst~~ — erledigt 2026-05-03 (`imprint.html`, gelbe Platzhalter — Jan muss Name/Adresse/USt-ID ausfüllen)
+- [x] ~~Datenschutz-Gerüst~~ — erledigt 2026-05-03 (`privacy.html`, DSGVO-konform für Web3Forms, Google Fonts, Tailwind CDN, GitHub Pages)
+- [ ] **Nach Inhaltsfinalisierung:** Impressum + Datenschutz von Anwalt oder eRecht24-Service prüfen lassen
+- [ ] Newsletter-Strategie (Mailchimp/Brevo/eigene Email-Sammlung?) + "Private Reading List"-Card und Footer-Link aktivieren
+- [ ] Google Fonts selbst hosten (optional, reduziert externen Datentransfer an Google — Datenschutz-Bonus)
+- [ ] Restliche Placeholder-Bilder (4× Blog-Cards, 1× Insights-Discipline-Card) durch echte Fotos ersetzen
+- [ ] Deutsche Sprachversion hinzufügen (DE/EN-Umschalter via `de.html` — Option A)
+- [ ] Inline-Editor (FAB) entscheiden: sichtbar lassen oder hinter Tastenkombination verstecken
 - [ ] Mobile-Optimierung prüfen (Hero auf kleinen Screens)
 - [ ] `index-old.html` (ehemals Option 1) ggf. löschen oder weiterentwickeln
 
