@@ -3,858 +3,303 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Jan Kohler | Professional Coaching</title>
+  <title>Jan Kohler | Coming Soon</title>
+  <meta name="description" content="Executive coaching by Jan Kohler — coming soon."/>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
   <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "on-primary-fixed": "#3f3f3f",
-            "outline-variant": "#aab3bb",
-            "primary": "#5e5e5e",
-            "on-secondary-fixed-variant": "#595c5d",
-            "on-secondary-container": "#4f5253",
-            "secondary-fixed": "#e1e3e3",
-            "background": "#f8f9fc",
-            "tertiary-fixed": "#d0ecff",
-            "error-dim": "#4e0309",
-            "surface-bright": "#f8f9fc",
-            "on-tertiary-container": "#3e5868",
-            "tertiary-fixed-dim": "#c2def0",
-            "surface-container-highest": "#dbe3ec",
-            "secondary-fixed-dim": "#d2d5d5",
-            "on-background": "#2b333a",
-            "tertiary-container": "#d0ecff",
-            "on-primary-container": "#525252",
-            "surface-tint": "#5e5e5e",
-            "on-surface-variant": "#586067",
-            "on-secondary-fixed": "#3c4040",
-            "on-primary": "#f8f8f8",
-            "on-error": "#fff7f6",
-            "primary-fixed-dim": "#d4d4d4",
-            "secondary-container": "#e1e3e3",
-            "inverse-on-surface": "#9b9da0",
-            "error-container": "#fe8983",
-            "on-secondary": "#f7f9fa",
-            "surface-variant": "#dbe3ec",
-            "on-tertiary": "#f4faff",
-            "surface-dim": "#d1dbe5",
-            "inverse-surface": "#0c0f11",
-            "surface-container": "#eaeef4",
-            "on-tertiary-fixed": "#2c4655",
-            "inverse-primary": "#ffffff",
-            "surface": "#f8f9fc",
-            "primary-container": "#e2e2e2",
-            "primary-dim": "#525252",
-            "primary-fixed": "#e2e2e2",
-            "outline": "#737c83",
-            "error": "#9f403d",
-            "on-error-container": "#752121",
-            "surface-container-lowest": "#ffffff",
-            "on-tertiary-fixed-variant": "#486272",
-            "surface-container-low": "#f1f4f8",
-            "tertiary": "#486272",
-            "tertiary-dim": "#3c5666",
-            "on-primary-fixed-variant": "#5b5b5b",
-            "surface-container-high": "#e2e9f0",
-            "secondary": "#5c6060",
-            "on-surface": "#2b333a",
-            "secondary-dim": "#505454"
-          },
-          borderRadius: {
-            DEFAULT: "1rem",
-            lg: "2rem",
-            xl: "3rem",
-            full: "9999px"
-          },
-          fontFamily: {
-            headline: ["Newsreader"],
-            body: ["Manrope"],
-            label: ["Manrope"]
-          }
-        }
-      }
-    }
+    tailwind.config = { darkMode: "class", theme: { extend: {
+      colors: { "primary": "#5e5e5e", "on-primary": "#f8f8f8", "on-surface": "#2b333a", "on-surface-variant": "#586067", "surface": "#f8f9fc", "surface-container-lowest": "#ffffff", "surface-container-low": "#f1f4f8", "surface-container-high": "#e2e9f0", "primary-container": "#e2e2e2" },
+      borderRadius: { DEFAULT: "1rem", lg: "2rem", xl: "3rem", full: "9999px" },
+      fontFamily: { headline: ["Newsreader"], body: ["Manrope"], label: ["Manrope"] }
+    }}}
   </script>
   <style>
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
+    body { overflow-x: hidden; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
     .text-editorial-gradient {
       background: linear-gradient(to bottom right, #2b333a, #5e5e5e);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-    .nav-link {
-      color: #5e5e5e;
-      transition: color 0.2s;
+
+    /* ─── Animated background ─────────────────────────── */
+    .bg-animation {
+      position: fixed; inset: 0; z-index: 0; overflow: hidden;
+      background: #f8f9fc;
+      pointer-events: none;
     }
-    .nav-link:hover { color: #2b333a; }
-    .nav-link.active {
-      color: #2b333a;
-      border-bottom: 1px solid #2b333a;
-      padding-bottom: 2px;
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      will-change: transform;
     }
+    .blob-1 {
+      width: 60vw; height: 60vw; max-width: 700px; max-height: 700px;
+      background: radial-gradient(circle, #d1dbe5 0%, transparent 70%);
+      top: -15%; left: -10%;
+      opacity: 0.55;
+      animation: float-a 24s ease-in-out infinite;
+    }
+    .blob-2 {
+      width: 50vw; height: 50vw; max-width: 600px; max-height: 600px;
+      background: radial-gradient(circle, #e2e9f0 0%, transparent 70%);
+      bottom: -15%; right: -10%;
+      opacity: 0.65;
+      animation: float-b 30s ease-in-out infinite;
+    }
+    .blob-3 {
+      width: 45vw; height: 45vw; max-width: 500px; max-height: 500px;
+      background: radial-gradient(circle, #c8d5e0 0%, transparent 70%);
+      top: 45%; left: 50%; transform: translate(-50%, -50%);
+      opacity: 0.35;
+      animation: float-c 28s ease-in-out infinite;
+    }
+    .blob-4 {
+      width: 35vw; height: 35vw; max-width: 400px; max-height: 400px;
+      background: radial-gradient(circle, #eaeef4 0%, transparent 70%);
+      top: 20%; right: 20%;
+      opacity: 0.4;
+      animation: float-d 22s ease-in-out infinite;
+    }
+
+    @keyframes float-a {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(60px, 40px) scale(1.15); }
+      66% { transform: translate(-30px, 60px) scale(0.9); }
+    }
+    @keyframes float-b {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(-50px, -30px) scale(1.1); }
+      66% { transform: translate(30px, -50px) scale(0.95); }
+    }
+    @keyframes float-c {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(calc(-50% + 50px), calc(-50% - 40px)) scale(1.2); }
+    }
+    @keyframes float-d {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-70px, 50px) scale(1.1); }
+    }
+
+    /* Subtle noise overlay */
+    .bg-animation::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+      opacity: 0.08;
+      mix-blend-mode: multiply;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .blob { animation: none !important; }
+    }
+
+    /* ─── Logo selector highlighting ──────────────────── */
+    #logo { user-select: none; -webkit-user-select: none; }
+
+    /* ─── Login modal ─────────────────────────────────── */
+    #login-modal {
+      position: fixed; inset: 0; z-index: 9999;
+      display: none; align-items: center; justify-content: center;
+      background: rgba(43, 51, 58, 0.55);
+      backdrop-filter: blur(8px);
+      padding: 24px;
+    }
+    #login-modal.open { display: flex; }
+    #login-modal .card {
+      background: #f8f9fc;
+      border-radius: 20px;
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 32px 80px rgba(43,51,58,0.25);
+      position: relative;
+    }
+    #login-close {
+      position: absolute; top: 16px; right: 16px;
+      width: 32px; height: 32px;
+      background: none; border: none;
+      cursor: pointer; color: #5e5e5e;
+      display: flex; align-items: center; justify-content: center;
+    }
+    #login-close:hover { color: #2b333a; }
   </style>
 </head>
 <body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
 
-  <!-- ── Navigation ──────────────────────────────────────────── -->
-  <nav class="fixed top-0 w-full z-50 bg-[#f8f9fc]/70 backdrop-blur-xl shadow-[0_20px_40px_rgba(43,51,58,0.05)]">
-    <div class="flex justify-between items-center px-12 py-6 max-w-screen-2xl mx-auto">
-      <a href="#home" class="font-['Newsreader'] text-2xl tracking-tight text-[#2b333a] no-underline">Jan Kohler</a>
-      <div class="hidden md:flex items-center gap-12 font-['Newsreader'] italic text-lg">
-        <a class="nav-link" href="#about" data-section="about">About</a>
-        <a class="nav-link" href="#insights" data-section="insights">Coaching</a>
-        <a class="nav-link" href="#blog" data-section="blog">Blog</a>
-        <a class="nav-link" href="#contact" data-section="contact">Contact</a>
-      </div>
-      <a class="hover:scale-[1.02] transition-transform duration-300 bg-on-surface text-on-primary rounded-full px-8 py-3 text-sm font-label tracking-widest uppercase no-underline" href="#contact">
-        Book a session
-      </a>
-    </div>
-  </nav>
+  <!-- ── Animated background ──────────────────────────────── -->
+  <div class="bg-animation" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+  </div>
 
-  <!-- ══════════════════════════════════════════════════════
-       HERO
-  ══════════════════════════════════════════════════════ -->
-  <header id="home" class="relative min-h-screen flex items-center overflow-hidden">
+  <!-- ── Page structure ───────────────────────────────────── -->
+  <div class="relative z-10 min-h-screen flex flex-col">
 
-    <!-- Full-bleed background image, anchored to the right so the face stays right -->
-    <div class="absolute inset-0 z-0">
-      <img
-        src="portrait.jpeg"
-        alt="Jan Kohler"
-        class="w-full h-full object-cover grayscale"
-        style="object-position: 72% top;"
-      />
-      <!-- Left-to-right gradient: opaque surface on the left fades to transparent on the right -->
-      <div class="absolute inset-0" style="background: linear-gradient(to right, #f8f9fc 30%, rgba(248,249,252,0.75) 55%, rgba(248,249,252,0.1) 75%, transparent 100%);"></div>
-      <!-- Bottom fade -->
-      <div class="absolute bottom-0 left-0 right-0 h-40" style="background: linear-gradient(to top, #f8f9fc, transparent);"></div>
-    </div>
+    <!-- Top: Logo -->
+    <header class="flex justify-center items-center pt-10 md:pt-16 px-6">
+      <a id="logo" class="font-['Newsreader'] text-2xl md:text-3xl tracking-tight text-[#2b333a] no-underline cursor-pointer" title="">Jan Kohler</a>
+    </header>
 
-    <!-- Text — left-aligned, max ~45% width so it never reaches the face -->
-    <div class="relative z-10 w-full max-w-screen-2xl mx-auto px-8 md:px-12 pt-32 pb-20">
-      <div class="max-w-lg">
-        <span class="font-label text-xs tracking-[0.3em] uppercase text-primary mb-8 block">Excellence in Coaching</span>
-        <h1 class="font-headline text-5xl md:text-6xl lg:text-[5.5rem] leading-[1.05] mb-10 text-editorial-gradient">
-          Elevate Your<br/>
-          <span class="italic">Professional</span><br/>
-          Trajectory
-        </h1>
-        <p class="font-body text-lg text-on-surface-variant mb-12 leading-relaxed">
-          Refined coaching for leaders who value nuanced growth — the quiet transition from high-performance to mastery.
-        </p>
-        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-          <a class="bg-on-surface text-on-primary rounded-full px-12 py-5 text-sm font-label tracking-widest uppercase hover:scale-[1.02] transition-transform duration-300 no-underline" href="#contact">
-            Begin Today
-          </a>
-          <a class="text-on-surface border-b border-on-surface/20 pb-1 font-headline italic text-xl hover:border-on-surface transition-all no-underline" href="#about">
-            Explore the philosophy
-          </a>
-        </div>
-        <div class="mt-20 flex flex-col items-start">
-          <div class="w-[1px] h-16 bg-gradient-to-b from-primary to-transparent"></div>
-        </div>
-      </div>
-    </div>
+    <!-- Main: Coming Soon + Form -->
+    <main class="flex-1 flex items-center justify-center px-6 md:px-12 py-12 md:py-20">
+      <div class="max-w-xl w-full text-center">
 
-  </header>
-
-  <!-- ══════════════════════════════════════════════════════
-       ABOUT
-  ══════════════════════════════════════════════════════ -->
-  <section class="py-32 px-6 md:px-12 bg-surface scroll-mt-28" id="about">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-
-      <!-- Left -->
-      <div class="lg:col-span-7 space-y-12">
-        <div class="space-y-6">
-          <span class="font-label text-xs tracking-[0.3em] uppercase text-primary">The Philosophy</span>
-          <h2 class="font-headline text-4xl md:text-6xl leading-tight">Cultivating Distinguished Leaders</h2>
-          <p class="font-body text-lg md:text-xl text-primary leading-relaxed max-w-2xl">
-            Success at the highest level is not merely an achievement of skill, but a refinement of character. We work with architects of the future to align their vision with executive discipline.
+        <div class="space-y-6 mb-14">
+          <span class="font-label text-xs tracking-[0.3em] uppercase text-primary">Excellence in Coaching</span>
+          <h1 class="font-headline text-5xl md:text-7xl leading-[1.05] text-editorial-gradient">
+            Coming<br/><span class="italic">Soon</span>
+          </h1>
+          <p class="font-body text-lg text-primary max-w-md mx-auto leading-relaxed">
+            Something refined is on its way. Leave a note and we will reach out the moment the doors open.
           </p>
         </div>
-        <div class="border-l-2 border-surface-container-high pl-8 py-4">
-          <blockquote class="font-headline italic text-2xl md:text-3xl text-on-surface mb-6">
-            "Great leadership is the quiet resonance of clarity in an increasingly chaotic world."
-          </blockquote>
-          <cite class="font-label text-sm tracking-widest uppercase text-primary not-italic">— Jan Kohler</cite>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-8 pt-8">
-          <div class="space-y-2">
-            <div class="font-headline text-4xl text-on-surface">15+</div>
-            <div class="font-label text-[10px] tracking-widest uppercase text-primary">Years Experience</div>
-          </div>
-          <div class="space-y-2">
-            <div class="font-headline text-4xl text-on-surface">200+</div>
-            <div class="font-label text-[10px] tracking-widest uppercase text-primary">Leaders Mentored</div>
-          </div>
-          <div class="space-y-2">
-            <div class="font-headline text-4xl text-on-surface">12</div>
-            <div class="font-label text-[10px] tracking-widest uppercase text-primary">Global Markets</div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Right -->
-      <div class="lg:col-span-5 relative">
-        <div class="aspect-[4/5] rounded-lg overflow-hidden bg-surface-container-low shadow-[0_40px_80px_rgba(43,51,58,0.08)]">
-          <img
-            class="w-full h-full object-cover"
-            src="about.jpeg"
-            alt="Jan Kohler"
-          />
+        <!-- Contact form -->
+        <form id="cs-form" action="https://api.web3forms.com/submit" method="POST" novalidate class="space-y-4">
+          <input type="hidden" name="access_key" value="a4c2d27f-ddee-48a8-ac73-6192445c99fe"/>
+          <input type="hidden" name="subject" value="Coming Soon — new inquiry via jankohlercoaching.de"/>
+          <input type="hidden" name="from_name" value="jankohlercoaching.de (Coming Soon)"/>
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" aria-hidden="true"/>
+
+          <input id="cs-name" name="name" required type="text" placeholder="Your name" class="w-full bg-white/80 backdrop-blur-sm border-none rounded-full px-6 py-4 text-center text-on-surface placeholder:text-primary/40 font-body focus:ring-1 focus:ring-primary/30 outline-none"/>
+          <input id="cs-email" name="email" required type="email" placeholder="Your email" class="w-full bg-white/80 backdrop-blur-sm border-none rounded-full px-6 py-4 text-center text-on-surface placeholder:text-primary/40 font-body focus:ring-1 focus:ring-primary/30 outline-none"/>
+          <textarea id="cs-message" name="message" required rows="3" placeholder="A short note — what brought you here?" class="w-full bg-white/80 backdrop-blur-sm border-none rounded-lg px-6 py-4 text-center text-on-surface placeholder:text-primary/40 font-body focus:ring-1 focus:ring-primary/30 outline-none resize-none"></textarea>
+          <button id="cs-submit" type="submit" class="inline-block bg-on-surface text-on-primary rounded-full px-12 py-4 text-sm font-label tracking-widest uppercase hover:scale-[1.02] transition-transform duration-300 shadow-lg disabled:opacity-60 disabled:cursor-not-allowed">
+            <span id="cs-submit-label">Get notified</span>
+          </button>
+          <div id="cs-error" class="hidden text-sm font-body text-red-600"></div>
+        </form>
+
+        <div id="cs-success" class="hidden space-y-4 py-8">
+          <span class="font-label text-[10px] tracking-widest uppercase text-primary">Message received</span>
+          <h3 class="font-headline text-3xl italic">Thank you.</h3>
+          <p class="font-body text-primary text-sm">We will be in touch.</p>
         </div>
-        <div class="absolute -bottom-8 -left-8 bg-surface-container-lowest p-8 rounded-lg shadow-xl hidden md:block max-w-[240px]">
-          <span class="font-headline text-xl italic block mb-2">Signature Method</span>
-          <p class="font-body text-sm text-primary">A proprietary framework focused on structural discipline and cognitive agility.</p>
-        </div>
+
       </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 md:px-12">
+      <div class="flex justify-center gap-8 font-['Manrope'] text-xs uppercase tracking-widest text-[#5e5e5e]/70">
+        <a class="hover:text-[#2b333a] transition-all no-underline" href="imprint.html">Imprint</a>
+        <a class="hover:text-[#2b333a] transition-all no-underline" href="privacy.html">Privacy</a>
+      </div>
+      <p class="text-center mt-4 font-['Manrope'] text-[10px] uppercase tracking-widest text-[#5e5e5e]/50">© 2026 Jan Kohler</p>
+    </footer>
+
+  </div>
+
+  <!-- ── Login modal (hidden) ─────────────────────────────── -->
+  <div id="login-modal" role="dialog" aria-modal="true" aria-labelledby="login-title">
+    <div class="card">
+      <button id="login-close" aria-label="Close"><span class="material-symbols-outlined" style="font-size:20px">close</span></button>
+      <span class="font-label text-[10px] tracking-widest uppercase text-primary block mb-2">Access</span>
+      <h3 id="login-title" class="font-headline text-2xl mb-6 text-on-surface">Enter site</h3>
+      <form id="login-form" class="space-y-4" autocomplete="off">
+        <input id="login-user" type="text" placeholder="Username" autocomplete="off" autocapitalize="off" spellcheck="false" class="w-full bg-surface-container-low border-none rounded-full px-6 py-3 text-on-surface placeholder:text-primary/40 font-body focus:ring-1 focus:ring-primary/30 outline-none"/>
+        <input id="login-pass" type="password" placeholder="Password" autocomplete="off" class="w-full bg-surface-container-low border-none rounded-full px-6 py-3 text-on-surface placeholder:text-primary/40 font-body focus:ring-1 focus:ring-primary/30 outline-none"/>
+        <button type="submit" class="w-full bg-on-surface text-on-primary rounded-full py-3 text-sm font-label tracking-widest uppercase hover:scale-[1.01] transition-transform">Enter</button>
+        <div id="login-error" class="hidden text-sm text-red-600 font-body text-center"></div>
+      </form>
     </div>
-  </section>
+  </div>
 
-  <!-- ══════════════════════════════════════════════════════
-       INSIGHTS / COACHING
-  ══════════════════════════════════════════════════════ -->
-  <section class="py-32 px-6 md:px-12 bg-surface-container-low scroll-mt-28" id="insights">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
-        <div class="max-w-2xl space-y-6">
-          <span class="font-label text-xs tracking-[0.3em] uppercase text-primary">The Discourse</span>
-          <h2 class="font-headline text-4xl md:text-6xl leading-tight">Follow Our Ongoing Discourse</h2>
-        </div>
-        <a class="font-headline italic text-xl text-on-surface border-b border-on-surface/20 pb-1 hover:border-on-surface transition-all no-underline" href="#">
-          View full archive
-        </a>
-      </div>
-
-      <!-- Bento Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-
-        <!-- Main Feature -->
-        <a href="insight-decision-making.html" class="md:col-span-8 group cursor-pointer no-underline text-inherit">
-          <div class="relative h-[500px] rounded-lg overflow-hidden mb-6">
-            <img
-              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              src="insights.jpeg"
-              alt="Coach Catalyst Skill Lab"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent"></div>
-            <div class="absolute bottom-10 left-10 right-10">
-              <span class="font-label text-[10px] tracking-widest uppercase text-white/70 mb-4 block">Strategy</span>
-              <h3 class="font-headline text-3xl md:text-4xl text-white mb-4">The Architecture of Resilient Decision Making</h3>
-              <p class="text-white/80 font-body line-clamp-2 max-w-xl">Exploring how modern executives maintain clarity under extreme volatility through cognitive scaffolding.</p>
-            </div>
-          </div>
-        </a>
-
-        <!-- Secondary Items -->
-        <div class="md:col-span-4 flex flex-col gap-6">
-          <a href="insight-silence.html" class="bg-surface-container-lowest p-10 rounded-lg shadow-sm flex-1 group cursor-pointer hover:shadow-md transition-shadow no-underline text-inherit block">
-            <span class="font-label text-[10px] tracking-widest uppercase text-primary mb-6 block">Mindset</span>
-            <h3 class="font-headline text-2xl mb-4 group-hover:italic transition-all">The Silence Between Actions</h3>
-            <p class="text-primary font-body text-sm leading-relaxed">Why the most effective leaders prioritize reflection over constant activity in the 21st century.</p>
-          </a>
-          <a href="insight-executive-presence.html" class="bg-on-surface p-10 rounded-lg flex-1 group cursor-pointer hover:bg-on-surface/95 transition-colors no-underline text-inherit block">
-            <span class="font-label text-[10px] tracking-widest uppercase text-white/50 mb-6 block">Leadership</span>
-            <h3 class="font-headline text-2xl text-white mb-4 group-hover:italic transition-all">Cultivating Executive Presence</h3>
-            <p class="text-white/70 font-body text-sm leading-relaxed">Defining the intangible qualities that command respect without saying a single word.</p>
-          </a>
-        </div>
-
-        <!-- Footer Items -->
-        <a href="insight-habit-excellence.html" class="md:col-span-4 bg-surface-container-high rounded-lg overflow-hidden group cursor-pointer no-underline text-inherit block">
-          <div class="h-48 overflow-hidden">
-            <img
-              class="w-full h-full object-cover grayscale group-hover:scale-110 transition-transform duration-500"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEQz1W0uIv7adeixyQOJXQkgvzCGAeQt2euT47lxGdwZbXzohK5TEVrk4Tr30CNlEBnzgZUGsxK_XHFh3d7MRMYHpCDlMsvzwYa-7TnGNuksJAxZLZo5AAnu51NXMDfEdp19w8n9OLh0x698ay6LlbklvicTE3w4dUoXmokZc_aCvVumpzNxJmYk7qVzStBk-Q82IJSjfw4quxYQlPUB0y8AnL8lgc2VkOTOKjve07tOsU9PttKxnTtRMcMiNkB_SqctKhChtTH-vl"
-              alt="Vintage typewriter on desk"
-            />
-          </div>
-          <div class="p-8">
-            <span class="font-label text-[10px] tracking-widest uppercase text-primary mb-4 block">Discipline</span>
-            <h3 class="font-headline text-xl">The Habit of Excellence</h3>
-          </div>
-        </a>
-
-        <div class="md:col-span-8 bg-surface-container-lowest p-10 rounded-lg flex items-center justify-between group cursor-pointer hover:shadow-sm transition-shadow">
-          <div class="max-w-md">
-            <span class="font-label text-[10px] tracking-widest uppercase text-primary mb-4 block">Community</span>
-            <h3 class="font-headline text-2xl mb-2">Join the Private Reading List</h3>
-            <p class="font-body text-sm text-primary">Monthly insights curated for the discerning leader, delivered directly to your desk.</p>
-          </div>
-          <div class="h-12 w-12 rounded-full border border-on-surface/10 flex items-center justify-center group-hover:bg-on-surface group-hover:text-white transition-all flex-shrink-0">
-            <span class="material-symbols-outlined">arrow_forward</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════
-       BLOG
-  ══════════════════════════════════════════════════════ -->
-  <section class="py-32 px-6 md:px-12 bg-surface scroll-mt-28" id="blog">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
-        <div class="max-w-2xl space-y-6">
-          <span class="font-label text-xs tracking-[0.3em] uppercase text-primary">Perspectives &amp; Insights</span>
-          <h2 class="font-headline text-4xl md:text-6xl leading-tight">Follow Our Ongoing Discourse</h2>
-        </div>
-        <div class="pb-4">
-          <div class="h-[2px] w-32 bg-primary mb-2"></div>
-          <p class="font-body text-sm text-on-surface-variant max-w-[240px]">Exploring the intersection of athletic discipline and professional excellence.</p>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- Blog Card 1 -->
-        <a href="blog-strategy.html" class="group cursor-pointer no-underline text-inherit block">
-          <div class="relative aspect-[3/4] overflow-hidden rounded-lg mb-6 bg-surface-container-low transition-transform duration-500 group-hover:scale-[0.98]">
-            <img class="absolute inset-0 w-full h-full object-cover grayscale-[0.2] transition-transform duration-700 group-hover:scale-110"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeHr8WFpKPwcZDAg_O49gov8AtaRYHWG0EN6X0I2Sxk_8y9ULDbt3P7yZEKokyH7um3vMIODo6Gd96wuUQ2v-a95j-gKRZ0EA4RbkJ_sFEPBqndDzdivLRGCOMEoSLsT6qdcWOmfumMjLoRu8lBWjtLTWF5RA3_jwZQBF7vWrBRrsJTVlQQZfQBBI8-ggCSKcw6QVRD51pnYo8_oaI8gHsmfY_1T2YZQUh8qtG6rsYVLjOCWt3CzklTBAhTfcyNi7nX0bZhA5Gm7JO"
-              alt="Football pitch" />
-            <div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          </div>
-          <span class="font-label text-[10px] tracking-widest text-primary mb-2 block uppercase font-bold">Strategy</span>
-          <h3 class="font-headline text-2xl mb-3 leading-tight text-on-surface">The Playing Field of Leadership: Lessons from Professional Sport</h3>
-          <p class="font-body text-on-surface-variant text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">How spatial structure and tactics can refine your organizational design.</p>
-        </a>
-        <!-- Blog Card 2 -->
-        <a href="blog-communication.html" class="group cursor-pointer pt-12 md:pt-24 no-underline text-inherit block">
-          <div class="relative aspect-[3/4] overflow-hidden rounded-lg mb-6 bg-surface-container-low transition-transform duration-500 group-hover:scale-[0.98]">
-            <img class="absolute inset-0 w-full h-full object-cover grayscale-[0.2] transition-transform duration-700 group-hover:scale-110"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj3jV4x3ZerDLUXW4d-Cf3y9xSUM9p48PPzb7hvH45n1r4E7pf2Fh6R6SNpQzHFdja18yOxZ5vUOCJLR8CksJ2KR6pW25spDE2w21s3Em5s1g8Xdn8uihxBWBq-VNyirzzzJT7VmMVHIYYIq9kBTpxqOWpCdEL2iejJlopR5WMUs6Xe88Z7pZrkfaf5v1VG4CfrOrwvb8-R_6uURGbG97Zq8vSMlSsMguPNp1RsMWZK2QEtMxLT36Sd5f3kX-ccgTs08-LN3-xnhCr"
-              alt="Coach whistle" />
-            <div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          </div>
-          <span class="font-label text-[10px] tracking-widest text-primary mb-2 block uppercase font-bold">Communication</span>
-          <h3 class="font-headline text-2xl mb-3 leading-tight text-on-surface">The Art of Clear Signals</h3>
-          <p class="font-body text-on-surface-variant text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">Decision-making under pressure: when a single whistle changes everything.</p>
-        </a>
-        <!-- Blog Card 3 -->
-        <a href="blog-performance.html" class="group cursor-pointer no-underline text-inherit block">
-          <div class="relative aspect-[3/4] overflow-hidden rounded-lg mb-6 bg-surface-container-low transition-transform duration-500 group-hover:scale-[0.98]">
-            <img class="absolute inset-0 w-full h-full object-cover grayscale-[0.2] transition-transform duration-700 group-hover:scale-110"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoCkeJjZ4xqGWFaqR7rJMhVWU6g-V7gerNlEiIX-iOOC_UpK7QQuBPT4aasts1XgIXCXIdGn2xlR7_j6yqgzg5Xrz8QzJaidRM4YLROlp-E9r9uxDkXvKqeZRB_UvTvXve3xr_BVJucRSJgHg2wjNRfe3fH4VxyC7qruh0jvWNcvp1xGOjUWwDn1Ny3CqeeIW3d3A4qKyS2P2LbGCyNQOsni1UEqOlrhwebkYCGN6c1M5J7MaRNFEIV1FDKiZxndMDvu-7hrRYtrC0"
-              alt="Vintage stopwatch" />
-            <div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          </div>
-          <span class="font-label text-[10px] tracking-widest text-primary mb-2 block uppercase font-bold">Performance</span>
-          <h3 class="font-headline text-2xl mb-3 leading-tight text-on-surface">Split Seconds: Timing as Competitive Edge</h3>
-          <p class="font-body text-on-surface-variant text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">Why pauses matter as much as the final sprint.</p>
-        </a>
-        <!-- Blog Card 4 -->
-        <a href="blog-endurance.html" class="group cursor-pointer pt-12 md:pt-16 no-underline text-inherit block">
-          <div class="relative aspect-[3/4] overflow-hidden rounded-lg mb-6 bg-surface-container-low transition-transform duration-500 group-hover:scale-[0.98]">
-            <img class="absolute inset-0 w-full h-full object-cover grayscale-[0.2] transition-transform duration-700 group-hover:scale-110"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8DfbPiKHp6-AHttSaMmeEjwJPptfK5XPyBHI00Ve8uS1pdTmKSRJ1qpdKQVQj5AJjoXdRlfVCkmQGr5b-i8WFBv0NtpBaRK1TKUJd-G0WG_reXBz-to5EPsw0VQKdMvX51_u0gZALtmG4t3-bHtJwsISufB-v3dgV9iXYhslTW4TJjqyfEgXz5aIgbOwxLd1MU-qnONtGOmNyM8KtG1AhF5KkFzLx8_nihr-25sDL7ENsEekIrjk_ERst15liAguTXsijBopYX-zd"
-              alt="Running track" />
-            <div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          </div>
-          <span class="font-label text-[10px] tracking-widest text-primary mb-2 block uppercase font-bold">Endurance</span>
-          <h3 class="font-headline text-2xl mb-3 leading-tight text-on-surface">The Marathon of Transformation</h3>
-          <p class="font-body text-on-surface-variant text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">Consistency beats intensity: how to stay at the top for the long run.</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════
-       CONTACT
-  ══════════════════════════════════════════════════════ -->
-  <section class="py-32 px-6 md:px-12 bg-surface scroll-mt-28" id="contact">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
-
-        <!-- Left -->
-        <div class="space-y-12">
-          <div class="space-y-6">
-            <span class="font-label text-xs tracking-[0.3em] uppercase text-primary">Engagement</span>
-            <h2 class="font-headline text-4xl md:text-6xl leading-tight">Begin a Thoughtful Conversation</h2>
-            <p class="font-body text-lg text-primary max-w-md leading-relaxed">
-              Each coaching partnership begins with a dialogue. Share your trajectory, and let's explore how we can align it with your ultimate vision.
-            </p>
-          </div>
-          <div class="space-y-8">
-            <div class="flex items-start gap-6">
-              <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center flex-shrink-0">
-                <span class="material-symbols-outlined text-primary text-xl">mail</span>
-              </div>
-              <div>
-                <div class="font-label text-[10px] tracking-widest uppercase text-primary mb-1">Direct Inquiries</div>
-                <div class="font-headline text-xl">office@jankohlercoaching.de</div>
-              </div>
-            </div>
-            <div class="flex items-start gap-6">
-              <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center flex-shrink-0">
-                <span class="material-symbols-outlined text-primary text-xl">location_on</span>
-              </div>
-              <div>
-                <div class="font-label text-[10px] tracking-widest uppercase text-primary mb-1">Office</div>
-                <div class="font-headline text-xl">Munich / Remote</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Form -->
-        <div class="bg-surface-container-low p-8 md:p-16 rounded-lg shadow-xl relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-[2px] bg-primary/10">
-            <div class="h-full bg-primary w-1/4"></div>
-          </div>
-          <form id="contact-form" class="space-y-8" action="https://api.web3forms.com/submit" method="POST" novalidate>
-            <input type="hidden" name="access_key" value="a4c2d27f-ddee-48a8-ac73-6192445c99fe"/>
-            <input type="hidden" name="subject" value="New contact inquiry via jankohlercoaching.de"/>
-            <input type="hidden" name="from_name" value="jankohlercoaching.de"/>
-            <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" aria-hidden="true"/>
-            <div class="space-y-2">
-              <label for="cf-name" class="font-label text-[10px] tracking-widest uppercase text-primary ml-1">Full Name</label>
-              <input id="cf-name" name="name" required class="w-full bg-surface-container-lowest border-none rounded-full px-8 py-4 focus:ring-1 focus:ring-primary/20 text-on-surface placeholder:text-primary/30 font-body" placeholder="Your distinguished name" type="text"/>
-            </div>
-            <div class="space-y-2">
-              <label for="cf-email" class="font-label text-[10px] tracking-widest uppercase text-primary ml-1">Email Address</label>
-              <input id="cf-email" name="email" required class="w-full bg-surface-container-lowest border-none rounded-full px-8 py-4 focus:ring-1 focus:ring-primary/20 text-on-surface placeholder:text-primary/30 font-body" placeholder="professional@email.com" type="email"/>
-            </div>
-            <div class="space-y-2">
-              <label for="cf-message" class="font-label text-[10px] tracking-widest uppercase text-primary ml-1">Your Objective</label>
-              <textarea id="cf-message" name="message" required class="w-full bg-surface-container-lowest border-none rounded-lg px-8 py-4 focus:ring-1 focus:ring-primary/20 text-on-surface placeholder:text-primary/30 font-body" placeholder="What professional trajectory are we exploring?" rows="4"></textarea>
-            </div>
-            <button id="cf-submit" class="w-full bg-on-surface text-on-primary rounded-full py-5 text-sm font-label tracking-widest uppercase hover:scale-[1.01] transition-transform duration-300 shadow-lg disabled:opacity-60 disabled:cursor-not-allowed" type="submit">
-              <span id="cf-submit-label">Send Message</span>
-            </button>
-            <div id="cf-error" class="hidden text-sm font-body text-red-600"></div>
-          </form>
-          <div id="cf-success" class="hidden space-y-6 py-8">
-            <span class="font-label text-[10px] tracking-widest uppercase text-primary">Message sent</span>
-            <h3 class="font-headline text-3xl md:text-4xl leading-tight">Thank you.</h3>
-            <p class="font-body text-primary">Your message has been received. Jan typically responds within a few business days.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Footer ─────────────────────────────────────────────── -->
-  <footer class="w-full py-16 px-12 mt-32 bg-[#f1f4f8]">
-    <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto">
-      <div class="flex flex-col items-center md:items-start gap-4">
-        <span class="text-lg font-['Newsreader'] text-[#2b333a]">Jan Kohler</span>
-        <p class="font-['Manrope'] text-sm uppercase tracking-widest text-[#5e5e5e]">© 2024 Jan Kohler. Excellence in Coaching.</p>
-      </div>
-      <div class="flex gap-12 font-['Manrope'] text-sm uppercase tracking-widest text-[#5e5e5e]">
-        <a class="hover:text-[#2b333a] transition-all" href="imprint.html">Imprint</a>
-        <a class="hover:text-[#2b333a] transition-all" href="privacy.html">Privacy</a>
-        <a class="hover:text-[#2b333a] transition-all" href="#contact">Newsletter</a>
-      </div>
-      <div class="flex gap-6">
-        <a class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center hover:bg-on-surface hover:text-on-primary transition-all" href="#">
-          <span class="material-symbols-outlined text-lg">public</span>
-        </a>
-        <a class="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center hover:bg-on-surface hover:text-on-primary transition-all" href="#">
-          <span class="material-symbols-outlined text-lg">mail</span>
-        </a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ── Scroll Spy ─────────────────────────────────────────── -->
   <script>
-    const sections = ['about', 'insights', 'blog', 'contact'];
-    const navLinks = document.querySelectorAll('.nav-link[data-section]');
-
-    function updateActiveNav() {
-      let current = '';
-      sections.forEach(id => {
-        const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 120) current = id;
-      });
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.dataset.section === current);
-      });
-    }
-
-    window.addEventListener('scroll', updateActiveNav, { passive: true });
-    updateActiveNav();
-  </script>
-
-  <!-- ── Editor ─────────────────────────────────────────────── -->
-  <script>
-  (function () {
-    // ── State ────────────────────────────────────────────────
-    let editMode = false;
-    let pendingImageEl = null;
-
-    // ── Text selectors to make editable ─────────────────────
-    // Elements that should become contenteditable in edit mode
-    const TEXT_SELECTOR = [
-      'h1', 'h2', 'h3',
-      'p:not([class*="tracking-widest"])',
-      'blockquote',
-      'cite'
-    ].join(',');
-
-    // Leaf-node spans/divs with meaningful text (labels, stats)
-    function isLeafText(el) {
-      if (el.closest('#jk-toolbar, #jk-modal, nav')) return false;
-      for (const c of el.childNodes) {
-        if (c.nodeType === Node.ELEMENT_NODE) {
-          if (c.classList.contains('material-symbols-outlined')) return false;
-          if (['DIV','P','H1','H2','H3','SECTION','ARTICLE','NAV',
-               'HEADER','FOOTER','UL','LI','FORM'].includes(c.tagName)) return false;
-        }
-      }
-      return el.textContent.trim().length > 0;
-    }
-
-    // ── Build UI ─────────────────────────────────────────────
-    function buildUI() {
-      // Floating pencil button
-      const fab = document.createElement('button');
-      fab.id = 'jk-fab';
-      fab.title = 'Edit website';
-      fab.innerHTML = '<span class="material-symbols-outlined">edit</span>';
-      fab.style.cssText = `
-        position:fixed; bottom:32px; right:32px; z-index:9000;
-        width:56px; height:56px; border-radius:9999px;
-        background:#2b333a; color:#f8f8f8;
-        display:flex; align-items:center; justify-content:center;
-        border:none; cursor:pointer; box-shadow:0 8px 32px rgba(43,51,58,0.25);
-        transition:transform .2s, box-shadow .2s; font-size:0;
-      `;
-      fab.addEventListener('mouseenter', () => fab.style.transform = 'scale(1.1)');
-      fab.addEventListener('mouseleave', () => fab.style.transform = 'scale(1)');
-      fab.addEventListener('click', enableEdit);
-      document.body.appendChild(fab);
-
-      // Toolbar (hidden initially)
-      const bar = document.createElement('div');
-      bar.id = 'jk-toolbar';
-      bar.style.cssText = `
-        position:fixed; bottom:32px; left:50%; transform:translateX(-50%);
-        z-index:9000; display:none; align-items:center; gap:8px;
-        background:#2b333a; color:#f8f8f8; padding:14px 28px;
-        border-radius:9999px; box-shadow:0 8px 40px rgba(43,51,58,0.3);
-        font-family:'Manrope',sans-serif; font-size:11px;
-        letter-spacing:.15em; text-transform:uppercase; white-space:nowrap;
-      `;
-      bar.innerHTML = `
-        <span class="material-symbols-outlined" style="font-size:18px;opacity:.7">edit</span>
-        <span style="opacity:.5;margin:0 4px">Edit mode active</span>
-        <div style="width:1px;height:18px;background:rgba(255,255,255,.2);margin:0 8px"></div>
-        <button id="jk-export" style="background:none;border:none;color:inherit;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:inherit;padding:0;opacity:.85;transition:opacity .15s" onmouseenter="this.style.opacity=1" onmouseleave="this.style.opacity=.85">
-          <span class="material-symbols-outlined" style="font-size:15px;vertical-align:middle;margin-right:4px">download</span>Export HTML
-        </button>
-        <div style="width:1px;height:18px;background:rgba(255,255,255,.2);margin:0 8px"></div>
-        <button id="jk-exit" style="background:none;border:none;color:inherit;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:inherit;padding:0;opacity:.85;transition:opacity .15s" onmouseenter="this.style.opacity=1" onmouseleave="this.style.opacity=.85">
-          <span class="material-symbols-outlined" style="font-size:15px;vertical-align:middle;margin-right:4px">close</span>Exit
-        </button>
-      `;
-      document.body.appendChild(bar);
-      document.getElementById('jk-export').addEventListener('click', exportHTML);
-      document.getElementById('jk-exit').addEventListener('click', disableEdit);
-
-      // Image modal
-      const modal = document.createElement('div');
-      modal.id = 'jk-modal';
-      modal.style.cssText = `
-        display:none; position:fixed; inset:0; z-index:9999;
-        background:rgba(43,51,58,.55); backdrop-filter:blur(8px);
-        align-items:center; justify-content:center; padding:24px;
-      `;
-      modal.innerHTML = `
-        <div style="background:#f8f9fc;border-radius:16px;padding:40px;width:100%;max-width:440px;box-shadow:0 32px 80px rgba(43,51,58,.2);font-family:'Manrope',sans-serif;position:relative;">
-          <h3 style="font-family:'Newsreader',serif;font-size:1.75rem;margin:0 0 28px;color:#2b333a;">Replace image</h3>
-
-          <label style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#5e5e5e;display:block;margin-bottom:8px;">Image URL</label>
-          <input id="jk-url-input" type="text" placeholder="https://..."
-            style="width:100%;box-sizing:border-box;background:#f1f4f8;border:none;border-radius:9999px;padding:12px 20px;font-family:'Manrope',sans-serif;font-size:14px;color:#2b333a;outline:none;margin-bottom:20px;" />
-
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
-            <div style="flex:1;height:1px;background:#aab3bb40;"></div>
-            <span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#5e5e5e;">or</span>
-            <div style="flex:1;height:1px;background:#aab3bb40;"></div>
-          </div>
-
-          <label style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#5e5e5e;display:block;margin-bottom:8px;">Upload file</label>
-          <input id="jk-file-input" type="file" accept="image/*"
-            style="width:100%;font-family:'Manrope',sans-serif;font-size:13px;color:#5e5e5e;margin-bottom:20px;" />
-
-          <div id="jk-preview-wrap" style="display:none;margin-bottom:24px;">
-            <img id="jk-preview" style="width:100%;height:160px;object-fit:cover;border-radius:12px;" />
-          </div>
-
-          <div style="display:flex;gap:12px;">
-            <button id="jk-cancel" style="flex:1;background:none;border:1px solid #aab3bb;border-radius:9999px;padding:14px;font-family:'Manrope',sans-serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;color:#2b333a;transition:background .15s;" onmouseenter="this.style.background='#f1f4f8'" onmouseleave="this.style.background='none'">Cancel</button>
-            <button id="jk-apply" style="flex:1;background:#2b333a;color:#f8f8f8;border:none;border-radius:9999px;padding:14px;font-family:'Manrope',sans-serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:opacity .15s;" onmouseenter="this.style.opacity=.85" onmouseleave="this.style.opacity=1">Apply</button>
-          </div>
-        </div>
-      `;
-      document.body.appendChild(modal);
-
-      document.getElementById('jk-cancel').addEventListener('click', closeModal);
-      document.getElementById('jk-apply').addEventListener('click', applyImage);
-
-      // File → base64 preview
-      document.getElementById('jk-file-input').addEventListener('change', function (e) {
-        const file = e.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = ev => {
-          document.getElementById('jk-url-input').value = '';
-          showPreview(ev.target.result);
-        };
-        reader.readAsDataURL(file);
-      });
-
-      // URL → preview
-      document.getElementById('jk-url-input').addEventListener('input', function (e) {
-        const v = e.target.value.trim();
-        document.getElementById('jk-file-input').value = '';
-        if (v) showPreview(v); else hidePreview();
-      });
-    }
-
-    function showPreview(src) {
-      document.getElementById('jk-preview').src = src;
-      document.getElementById('jk-preview-wrap').style.display = 'block';
-    }
-    function hidePreview() {
-      document.getElementById('jk-preview-wrap').style.display = 'none';
-    }
-
-    // ── Enable edit mode ─────────────────────────────────────
-    function enableEdit() {
-      editMode = true;
-      document.getElementById('jk-fab').style.display = 'none';
-      document.getElementById('jk-toolbar').style.display = 'flex';
-
-      // Text elements
-      document.querySelectorAll(TEXT_SELECTOR).forEach(el => {
-        if (el.closest('#jk-toolbar, #jk-modal, nav, form')) return;
-        if (el.querySelector('.material-symbols-outlined')) return;
-        el.contentEditable = 'true';
-        el.dataset.jkEditable = '1';
-      });
-
-      // Leaf spans & divs with text (labels, stats)
-      document.querySelectorAll('span, div').forEach(el => {
-        if (el.closest('#jk-toolbar, #jk-modal, nav, form')) return;
-        if (!isLeafText(el)) return;
-        el.contentEditable = 'true';
-        el.dataset.jkEditable = '1';
-      });
-
-      // Image overlays
-      document.querySelectorAll('img').forEach(img => {
-        if (img.closest('#jk-modal')) return;
-        addImageOverlay(img);
-      });
-
-      injectEditStyles();
-    }
-
-    // ── Disable edit mode ─────────────────────────────────────
-    function disableEdit() {
-      editMode = false;
-      document.getElementById('jk-fab').style.display = 'flex';
-      document.getElementById('jk-toolbar').style.display = 'none';
-
-      document.querySelectorAll('[data-jk-editable]').forEach(el => {
-        el.removeAttribute('contenteditable');
-        delete el.dataset.jkEditable;
-      });
-
-      document.querySelectorAll('.jk-img-wrap').forEach(wrap => {
-        const img = wrap.querySelector('img');
-        const parent = wrap.parentNode;
-        // Restore img to its original position
-        parent.insertBefore(img, wrap);
-        wrap.remove();
-      });
-
-      removeEditStyles();
-    }
-
-    // ── Image overlay ─────────────────────────────────────────
-    function addImageOverlay(img) {
-      const wrap = document.createElement('div');
-      wrap.className = 'jk-img-wrap';
-      wrap.style.cssText = 'position:relative;display:contents;';
-
-      const overlay = document.createElement('div');
-      overlay.className = 'jk-img-overlay';
-      overlay.style.cssText = `
-        position:absolute;inset:0;z-index:10;
-        display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
-        background:rgba(43,51,58,0);cursor:pointer;
-        transition:background .25s;border-radius:inherit;
-      `;
-      overlay.innerHTML = `
-        <span class="material-symbols-outlined" style="font-size:28px;color:#fff;opacity:0;transition:opacity .25s;">photo_camera</span>
-        <span style="font-family:'Manrope',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#fff;opacity:0;transition:opacity .25s;">Bild ersetzen</span>
-      `;
-      overlay.addEventListener('mouseenter', () => {
-        overlay.style.background = 'rgba(43,51,58,.5)';
-        overlay.querySelectorAll('span').forEach(s => s.style.opacity = '1');
-      });
-      overlay.addEventListener('mouseleave', () => {
-        overlay.style.background = 'rgba(43,51,58,0)';
-        overlay.querySelectorAll('span').forEach(s => s.style.opacity = '0');
-      });
-      overlay.addEventListener('click', e => {
-        e.stopPropagation();
-        openModal(img);
-      });
-
-      // Wrap: insert overlay as sibling inside img's parent (needs position:relative)
-      const parent = img.parentElement;
-      const computedPos = window.getComputedStyle(parent).position;
-      if (computedPos === 'static') parent.style.position = 'relative';
-      parent.appendChild(overlay);
-      overlay._targetImg = img;
-      // Store overlay ref on img for cleanup
-      img._jkOverlay = overlay;
-    }
-
-    // ── Image modal ───────────────────────────────────────────
-    function openModal(img) {
-      pendingImageEl = img;
-      document.getElementById('jk-url-input').value = img.src.startsWith('data:') ? '' : img.src;
-      document.getElementById('jk-file-input').value = '';
-      showPreview(img.src);
-      document.getElementById('jk-modal').style.display = 'flex';
-    }
-
-    function closeModal() {
-      document.getElementById('jk-modal').style.display = 'none';
-      pendingImageEl = null;
-      hidePreview();
-    }
-
-    function applyImage() {
-      const preview = document.getElementById('jk-preview');
-      if (pendingImageEl && preview.src) {
-        pendingImageEl.src = preview.src;
-      }
-      closeModal();
-    }
-
-    // ── Export HTML ───────────────────────────────────────────
-    function exportHTML() {
-      // Snapshot current state without editor chrome
-      const clone = document.documentElement.cloneNode(true);
-
-      // Remove editor elements
-      ['jk-fab', 'jk-toolbar', 'jk-modal'].forEach(id => {
-        const el = clone.querySelector('#' + id);
-        if (el) el.remove();
-      });
-
-      // Remove contenteditable & overlays
-      clone.querySelectorAll('[data-jk-editable]').forEach(el => {
-        el.removeAttribute('contenteditable');
-        delete el.dataset.jkEditable;
-      });
-      clone.querySelectorAll('.jk-img-overlay').forEach(el => el.remove());
-
-      // Remove editor styles & script tag
-      const eStyle = clone.querySelector('#jk-edit-styles');
-      if (eStyle) eStyle.remove();
-
-      const html = '<!DOCTYPE html>\n' + clone.outerHTML;
-      const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'jan-kohler-website.html';
-      a.click();
-      URL.revokeObjectURL(url);
-    }
-
-    // ── Edit styles ───────────────────────────────────────────
-    function injectEditStyles() {
-      if (document.getElementById('jk-edit-styles')) return;
-      const s = document.createElement('style');
-      s.id = 'jk-edit-styles';
-      s.textContent = `
-        [data-jk-editable] {
-          outline: 1.5px dashed rgba(94,94,94,.35) !important;
-          outline-offset: 4px;
-          border-radius: 4px;
-          cursor: text;
-          min-width: 10px;
-        }
-        [data-jk-editable]:hover {
-          outline-color: rgba(94,94,94,.65) !important;
-          background: rgba(94,94,94,.04);
-        }
-        [data-jk-editable]:focus {
-          outline: 1.5px solid rgba(43,51,58,.8) !important;
-          background: rgba(255,255,255,.85);
-        }
-      `;
-      document.head.appendChild(s);
-    }
-
-    function removeEditStyles() {
-      const el = document.getElementById('jk-edit-styles');
-      if (el) el.remove();
-    }
-
-    // ── Init ──────────────────────────────────────────────────
-    buildUI();
-  })();
-  </script>
-
-  <!-- ══════════════════════════════════════════════════════
-       CONTACT FORM — Web3Forms AJAX submit
-  ══════════════════════════════════════════════════════ -->
-  <script>
+  // ── Hidden login: triple-click on logo ───────────────────
   (function() {
-    const form = document.getElementById('contact-form');
-    if (!form) return;
+    const logo = document.getElementById('logo');
+    const modal = document.getElementById('login-modal');
+    const closeBtn = document.getElementById('login-close');
+    const form = document.getElementById('login-form');
+    const userEl = document.getElementById('login-user');
+    const passEl = document.getElementById('login-pass');
+    const errEl = document.getElementById('login-error');
 
-    const errorEl = document.getElementById('cf-error');
-    const successEl = document.getElementById('cf-success');
-    const submitBtn = document.getElementById('cf-submit');
-    const submitLabel = document.getElementById('cf-submit-label');
+    let clickCount = 0;
+    let clickTimer = null;
+
+    function openModal() {
+      modal.classList.add('open');
+      errEl.classList.add('hidden');
+      userEl.value = '';
+      passEl.value = '';
+      setTimeout(() => userEl.focus(), 50);
+    }
+    function closeModal() {
+      modal.classList.remove('open');
+    }
+
+    logo.addEventListener('click', (e) => {
+      e.preventDefault();
+      clickCount++;
+      clearTimeout(clickTimer);
+      clickTimer = setTimeout(() => { clickCount = 0; }, 600);
+      if (clickCount >= 3) {
+        clickCount = 0;
+        openModal();
+      }
+    });
+
+    // Close on ESC or backdrop click
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    closeBtn.addEventListener('click', closeModal);
+
+    // Login submit
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const u = userEl.value.trim();
+      const p = passEl.value;
+      if (u === 'Jan' && p === 'comingsoon') {
+        location.href = 'site.html';
+      } else {
+        errEl.textContent = 'Invalid credentials';
+        errEl.classList.remove('hidden');
+        passEl.value = '';
+        passEl.focus();
+      }
+    });
+  })();
+
+  // ── Contact form (Web3Forms AJAX) ────────────────────────
+  (function() {
+    const form = document.getElementById('cs-form');
+    if (!form) return;
+    const errorEl = document.getElementById('cs-error');
+    const successEl = document.getElementById('cs-success');
+    const submitBtn = document.getElementById('cs-submit');
+    const submitLabel = document.getElementById('cs-submit-label');
     const originalLabel = submitLabel.textContent;
 
     function showError(msg) {
       errorEl.textContent = msg;
       errorEl.classList.remove('hidden');
     }
-
     function clearError() {
       errorEl.textContent = '';
       errorEl.classList.add('hidden');
     }
 
-    form.addEventListener('submit', async function(e) {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       clearError();
-
-      // HTML5-Validierung manuell auslösen (wir haben novalidate gesetzt, damit kein Browser-Popup erscheint)
       if (!form.checkValidity()) {
         const firstInvalid = form.querySelector(':invalid');
         if (firstInvalid) firstInvalid.focus();
         showError('Please fill in all fields correctly.');
         return;
       }
-
       submitBtn.disabled = true;
       submitLabel.textContent = 'Sending…';
-
       try {
         const formData = new FormData(form);
         const res = await fetch(form.action, {
@@ -863,11 +308,9 @@
           headers: { 'Accept': 'application/json' }
         });
         const data = await res.json().catch(() => ({}));
-
         if (res.ok && data.success) {
           form.classList.add('hidden');
           successEl.classList.remove('hidden');
-          successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
         } else {
           throw new Error(data.message || 'Unknown error. Please try again later.');
         }

@@ -12,8 +12,9 @@ Kein Framework, kein Build-Prozess — alles in einer einzigen HTML-Datei.
 
 | Datei | Beschreibung |
 |---|---|
-| `index.html` | **Aktive Version** (ehemals `index2.html`, umbenannt am 2026-05-03) |
-| `index-old.html` | Option 1 — Multi-Section-Site, wird nicht weiterentwickelt (ehemals `index.html`) |
+| `index.html` | **Coming Soon Page** — animierter Hintergrund, Kontaktformular, Hidden-Login (3×-Klick auf Logo → Credentials `Jan` / `comingsoon`) |
+| `site.html` | **Aktive Hauptseite** (vor Coming Soon war das `index.html`) — Hero, About, Insights, Blog, Contact |
+| `index-old.html` | Option 1 — alte Version, wird nicht weiterentwickelt |
 | `blog-strategy.html` | Blog-Artikel "The Playing Field of Leadership" (Platzhalter-Inhalt) |
 | `blog-communication.html` | Blog-Artikel "The Art of Clear Signals" (Platzhalter) |
 | `blog-performance.html` | Blog-Artikel "Split Seconds" (Platzhalter) |
@@ -141,13 +142,15 @@ git push
 - [x] ~~Insights-Artikel-Seiten als Platzhalter~~ — erledigt 2026-05-03 (4 Seiten: Decision Making, Silence, Executive Presence, Habit of Excellence — Cards verlinkt)
 - [x] ~~Impressum-Gerüst~~ — erledigt 2026-05-03 (`imprint.html`, gelbe Platzhalter — Jan muss Name/Adresse/USt-ID ausfüllen)
 - [x] ~~Datenschutz-Gerüst~~ — erledigt 2026-05-03 (`privacy.html`, DSGVO-konform für Web3Forms, Google Fonts, Tailwind CDN, GitHub Pages)
+- [x] ~~Coming Soon Page mit Hidden-Login~~ — erledigt 2026-05-03 (`index.html` = Coming Soon, `site.html` = Full Site. Login: 3×-Klick auf Logo → Modal → User: `Jan`, Pass: `comingsoon` → Redirect auf site.html. Achtung: client-seitig, nur Soft-Gate)
+- [x] ~~Mobile-Hero optimiert (Text/Bild-Konflikt gefixt)~~ — erledigt 2026-05-03 (Stack-Layout auf Mobile: Bild oben ~58vh, Text unten — kein Overlay mehr auf Gesicht)
 - [ ] **Nach Inhaltsfinalisierung:** Impressum + Datenschutz von Anwalt oder eRecht24-Service prüfen lassen
 - [ ] Newsletter-Strategie (Mailchimp/Brevo/eigene Email-Sammlung?) + "Private Reading List"-Card und Footer-Link aktivieren
 - [ ] Google Fonts selbst hosten (optional, reduziert externen Datentransfer an Google — Datenschutz-Bonus)
 - [ ] Restliche Placeholder-Bilder (4× Blog-Cards, 1× Insights-Discipline-Card) durch echte Fotos ersetzen
 - [ ] Deutsche Sprachversion hinzufügen (DE/EN-Umschalter via `de.html` — Option A)
 - [ ] Inline-Editor (FAB) entscheiden: sichtbar lassen oder hinter Tastenkombination verstecken
-- [ ] Mobile-Optimierung prüfen (Hero auf kleinen Screens)
+- [ ] Mobile-Optimierung weiter prüfen (Insights-Bento-Grid, Blog-Cards-Offset auf Mobile, Contact-Form-Spacing)
 - [ ] `index-old.html` (ehemals Option 1) ggf. löschen oder weiterentwickeln
 
 ---
