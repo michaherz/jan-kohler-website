@@ -145,7 +145,7 @@ Die Domain `jankohlercoaching.de` ist bei Ionos registriert, Nameserver bleiben 
 ### Lokaler Workflow
 
 ```bash
-cd ~/Desktop/jan-kohler-website
+cd ~/Desktop/Privat/Apps/jan-kohler-website
 # Änderungen machen
 git add .
 git commit -m "beschreibung der änderung"
