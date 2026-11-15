@@ -1,2 +1,19 @@
 .DS_Store
 Website/
+
+# Ergänzt 2026-11-15
+.env*
+!.env.example
+node_modules/
+__pycache__/
+*.sqlite
+*.db
+dist/
+build/
+.next/
+.vercel/
+
+# Arbeitsnotizen nicht öffentlich (Repo ist public für GitHub Pages) — liegen in der privaten Cloud
+CLAUDE.md
+CONTEXT.md
+docs/
